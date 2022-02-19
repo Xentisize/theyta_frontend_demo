@@ -11,7 +11,11 @@ const Feature = () => {
       <div className="container-fluid" style={{ marginTop: "2em" }}>
         <div className="row">
           <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-            <img src={"/" + params.featureId + ".png"} alt="feature" />
+            <img
+              src={"/" + params.featureId + ".png"}
+              alt="feature"
+              className="img-responsive"
+            />
           </div>
         </div>
       </div>

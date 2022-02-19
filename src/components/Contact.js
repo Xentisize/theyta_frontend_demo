@@ -8,7 +8,11 @@ const Contact = () => {
       <div className="container-fluid">
         <NavBar />
         <a href="mailto:info@theyta.com">
-          <img src="./contact.png" alt="contact info" />
+          <img
+            className="img-responsive"
+            src="./contact.png"
+            alt="contact info"
+          />
         </a>
       </div>
       <Footer />
