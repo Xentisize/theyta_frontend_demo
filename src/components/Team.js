@@ -14,7 +14,7 @@ const Team = () => {
         <div className="row">
           <div className="col-lg-3 col-md-3 col-sm-3 col-xs-3">
             <h3>Charlie Poon</h3>
-            <p className="lead">Chief Russian Girls Contact Officer</p>
+            <p className="lead">Business Development Manager</p>
             <img
               src="img01.jpg"
               className="img-responsive margin"
@@ -24,7 +24,7 @@ const Team = () => {
           </div>
           <div className="col-lg-3 col-md-3 col-sm-3 col-xs-3">
             <h3>Ricky Chan</h3>
-            <p className="lead">Chief Supporter of Russian Girls</p>
+            <p className="lead">Tech Lead</p>
             <img
               src="img01.jpg"
               className="img-responsive margin"
@@ -34,7 +34,7 @@ const Team = () => {
           </div>
           <div className="col-lg-3 col-md-3 col-sm-3 col-xs-3">
             <h3>Rova Wong</h3>
-            <p className="lead">Chief Russian Girls Financial Officer</p>
+            <p className="lead">Product Manager</p>
             <img
               src="img01.jpg"
               className="img-responsive margin"
@@ -44,7 +44,7 @@ const Team = () => {
           </div>
           <div className="col-lg-3 col-md-3 col-sm-3 col-xs-3">
             <h3>Silver Ng</h3>
-            <p className="lead">Chief Russian Girls Fashion Officer</p>
+            <p className="lead">UX/UI Designer</p>
             <img
               src="img01.jpg"
               className="img-responsive margin"
