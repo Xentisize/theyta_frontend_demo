@@ -14,7 +14,7 @@ function App() {
 
       <Team />
       <AppDownload />
-      {/* <Footer /> */}
+      <Footer />
     </>
   )
 }

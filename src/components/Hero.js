@@ -3,7 +3,7 @@ const Hero = () => {
   return (
     <div className="hero min-h-fit" style={{backgroundImage: "url(/images/banner_hero_upl_v08.jpg)"}} id="hero">
       <div className="hero-overlay bg-opacity-60"></div>
-      <div className="text-center hero-content text-neutral-content">
+      <div className="text-center hero-content text-neutral-content bg-white/10">
         <div className="prose lg:max-w-xl max-w-sm">
           <h1 className="mb-5 font-bold text-white/90">TheyTa.com</h1>
           <h3 className="prose-lead">A revolutionary data platform enabling a new communication era.</h3>
