@@ -1,7 +1,7 @@
 
 const Hero = () => {
   return (
-    <div className="hero min-h-screen" style={{backgroundImage: "url(/images/banner_hero_upl_v08.jpg)"}}>
+    <div className="hero min-h-fit" style={{backgroundImage: "url(/images/banner_hero_upl_v08.jpg)"}}>
       <div className="hero-overlay bg-opacity-60"></div>
       <div className="text-center hero-content text-neutral-content">
         <div className="prose lg:max-w-xl max-w-sm">
