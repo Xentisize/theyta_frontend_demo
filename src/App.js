@@ -11,9 +11,9 @@ function App() {
       <NavBar />
       <Hero />
       <Feature />
-      {/*<About />
+
       <Team />
-      <AppDownload />
+      {/* <AppDownload />
       <Footer /> */}
     </>
   )
