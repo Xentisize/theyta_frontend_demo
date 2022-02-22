@@ -21,7 +21,7 @@ const NavBar = () => {
       </div>
       
       {/* The main menu when lg */}
-      <div className="navbar-center lg:flex text-xl font-medium">
+      {/* <div className="navbar-center lg:flex text-xl font-medium">
         <a className="btn btn-ghost normal-case lg:hidden">
           <img src="/images/logo_theyta_01_colour.svg" className="w-full h-8" />
         </a>
@@ -46,7 +46,7 @@ const NavBar = () => {
             </li>
           </ul>
         </div>
-      </div>
+      </div> */}
                 
       <div className="navbar-end hidden lg:flex">
         <a className="btn btn-outline btn-accent">Download App</a>
@@ -59,13 +59,13 @@ const NavBar = () => {
       <div className="px-3 py-4 overflow-y-auto rounded bg-base-100">
         <ul className="space-y-2">
           <li>
-            <a href="#" className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg">
+            <a href="#hero" className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg">
               <BsClipboardData />
               <span className="ml-3">About TheyTa</span>
             </a>
           </li>
           <li>
-            <a href="#" className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg">
+            <a href="#features" className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg">
               <BiBarChartAlt2 />
               <span className="ml-3">Features</span>
             </a>
