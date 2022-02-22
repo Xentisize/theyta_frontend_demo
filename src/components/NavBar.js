@@ -1,6 +1,6 @@
-import { Link } from "react-router-dom"
 import { BsDownload, BsClipboardData } from "react-icons/bs"
 import { BiBarChartAlt2 } from "react-icons/bi"
+import { FaPeopleCarry } from "react-icons/fa"
 import { useState } from "react"
 
 const NavBar = () => {
@@ -49,7 +49,7 @@ const NavBar = () => {
       </div> */}
                 
       <div className="navbar-end hidden lg:flex">
-        <a className="btn btn-outline btn-accent">Download App</a>
+        <a className="btn btn-outline btn-accent" href="#download_app">Download App</a>
       </div>
         
     </div>
@@ -71,7 +71,13 @@ const NavBar = () => {
             </a>
           </li>
           <li>
-            <a href="#" className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg">
+            <a href="#team" className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg">
+              <FaPeopleCarry />
+              <span className="ml-3">Team</span>
+            </a>
+          </li>
+          <li>
+            <a href="#download_app" className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg">
               <BsDownload />
               <span className="ml-3">Download App</span>
             </a>

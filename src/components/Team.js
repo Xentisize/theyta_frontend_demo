@@ -2,7 +2,7 @@ import { SiMinutemailer } from "react-icons/si"
 
 const Team = () => {
   return (
-    <div className="bg-slate-100">
+    <div className="bg-slate-100" id="team">
       <div className="flex flex-row py-12 basis-full">
         <div className="text-center flex-auto w-full basis-full flex-wrap">
           <h2 className="font-semibold text-3xl">Our Team</h2>
