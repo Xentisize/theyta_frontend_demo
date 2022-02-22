@@ -2,7 +2,7 @@ const Feature = () => {
   return (
     <>
       <div className="flex flex-col" id="features">          
-          <div className="flex flex-row justify-evenly shadow-lg py-12 bg-emerald-300">
+          <div className="flex flex-row justify-evenly shadow-lg py-12 bg-emerald-300 text-slate-700">
             <div className="w-32 lg:w-64 avatar">
               <figure className="mask mask-squircle self-center">
                 <img src="/images/img01.jpg" alt="One-click creation" />
@@ -28,7 +28,7 @@ const Feature = () => {
             </div>
           </div>
 
-          <div className="flex flex-row justify-evenly shadow-lg py-12 bg-emerald-300">
+          <div className="flex flex-row justify-evenly shadow-lg py-12 bg-emerald-300 text-slate-700">
             <div className="w-32 lg:w-64 avatar">
               <figure className="mask mask-circle self-center">
                 <img src="/images/img03.jpg" alt="One-click creation" />
@@ -41,7 +41,7 @@ const Feature = () => {
             </div>           
           </div>
 
-          <div className="flex flex-row justify-evenly shadow-lg py-12 bg-slate-300">
+          <div className="flex flex-row justify-evenly shadow-lg py-12 bg-slate-300 text-slate-700">
             <div className="basis-2/3 prose px-3 py-3">
               <h3>Share Charts to Other Websites</h3>
               <p>Your graphs are not limited in TheyTa. You can easily export them to your favorable social media, or even your website, to facilitate discussion with others.</p>

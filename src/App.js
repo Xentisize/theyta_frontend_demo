@@ -11,7 +11,6 @@ function App() {
       <NavBar />
       <Hero />
       <Feature />
-
       <Team />
       <AppDownload />
       <Footer />
