@@ -4,24 +4,32 @@ import { FaPeopleCarry } from "react-icons/fa"
 import { useState } from "react"
 
 const NavBar = () => {
-  const [toggleSideMenu, setToggleSideMenu] = useState(false)
+	const [toggleSideMenu, setToggleSideMenu] = useState(false)
 
-  return (
-    <>
-    <div className="navbar bg-base-100 text-slate-400 shadow-md">
-      <div className="navbar-start">
-        <div className="dropdown" onClick={() => setToggleSideMenu(!toggleSideMenu)}>
-          <label className="btn btn-ghost lg:hidden" >
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
-          </label>
-        </div>
-        <a href="/" className="px-4 hover:bg-blue-50">
-          <img src="/images/logo_theyta_01_colour.svg" className="w-full h-8" />
-        </a>
-      </div>
-      
-      {/* The main menu when lg */}
-      {/* <div className="navbar-center lg:flex text-xl font-medium">
+	return (
+		<>
+			<div className="navbar bg-base-100 text-slate-400 shadow-md">
+				<div className="navbar-start">
+					<div className="dropdown" onClick={() => setToggleSideMenu(!toggleSideMenu)}>
+						<label className="btn btn-ghost lg:hidden">
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								className="h-5 w-5"
+								fill="none"
+								viewBox="0 0 24 24"
+								stroke="currentColor"
+							>
+								<path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" />
+							</svg>
+						</label>
+					</div>
+					<a href="/" className="px-4 hover:bg-blue-50">
+						<img src="/images/logo_theyta_01_colour.svg" className="h-8 w-full" alt="Company Logo" />
+					</a>
+				</div>
+
+				{/* The main menu when lg */}
+				{/* <div className="navbar-center lg:flex text-xl font-medium">
         <a className="btn btn-ghost normal-case lg:hidden">
           <img src="/images/logo_theyta_01_colour.svg" className="w-full h-8" />
         </a>
@@ -47,47 +55,51 @@ const NavBar = () => {
           </ul>
         </div>
       </div> */}
-                
-      <div className="navbar-end hidden lg:flex">
-        <a className="btn btn-outline btn-accent" href="#download_app">Download App</a>
-      </div>
-        
-    </div>
 
-    {toggleSideMenu ?
-      (<aside className="w-15 md:hidden bg-base-100/50 text-slate-400 flex-col mt-2 align-middle self-center">
-      <div className="px-3 py-4 overflow-y-auto rounded bg-base-100">
-        <ul className="space-y-2">
-          <li>
-            <a href="#hero" className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg">
-              <BsClipboardData />
-              <span className="ml-3">About TheyTa</span>
-            </a>
-          </li>
-          <li>
-            <a href="#features" className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg">
-              <BiBarChartAlt2 />
-              <span className="ml-3">Features</span>
-            </a>
-          </li>
-          <li>
-            <a href="#team" className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg">
-              <FaPeopleCarry />
-              <span className="ml-3">Team</span>
-            </a>
-          </li>
-          <li>
-            <a href="#download_app" className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg">
-              <BsDownload />
-              <span className="ml-3">Download App</span>
-            </a>
-          </li>
-        </ul>
-      </div>     
-      </aside>) : null
-    }      
-    </>
-  )
+				<div className="navbar-end hidden lg:flex">
+					<a className="btn-outline btn btn-accent" href="#download_app">
+						Download App
+					</a>
+				</div>
+			</div>
+
+			{toggleSideMenu ? (
+				<aside className="w-15 mt-2 flex-col self-center bg-base-100/50 align-middle text-slate-400 md:hidden">
+					<div className="overflow-y-auto rounded bg-base-100 px-3 py-4">
+						<ul className="space-y-2">
+							<li>
+								<a href="#hero" className="flex items-center rounded-lg p-2 text-base font-normal text-gray-900">
+									<BsClipboardData />
+									<span className="ml-3">About TheyTa</span>
+								</a>
+							</li>
+							<li>
+								<a href="#features" className="flex items-center rounded-lg p-2 text-base font-normal text-gray-900">
+									<BiBarChartAlt2 />
+									<span className="ml-3">Features</span>
+								</a>
+							</li>
+							<li>
+								<a href="#team" className="flex items-center rounded-lg p-2 text-base font-normal text-gray-900">
+									<FaPeopleCarry />
+									<span className="ml-3">Team</span>
+								</a>
+							</li>
+							<li>
+								<a
+									href="#download_app"
+									className="flex items-center rounded-lg p-2 text-base font-normal text-gray-900"
+								>
+									<BsDownload />
+									<span className="ml-3">Download App</span>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</aside>
+			) : null}
+		</>
+	)
 }
 
 export default NavBar
