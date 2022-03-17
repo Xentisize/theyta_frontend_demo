@@ -6,16 +6,16 @@ import AppDownload from "./components/AppDownload"
 import Footer from "./components/Footer"
 
 function App() {
-  return (
-    <>
-      <NavBar />
-      <Hero />
-      <Feature />
-      <Team />
-      <AppDownload />
-      <Footer />
-    </>
-  )
+	return (
+		<>
+			<NavBar hasUser={false} />
+			<Hero />
+			<Feature />
+			<Team />
+			<AppDownload />
+			<Footer />
+		</>
+	)
 }
 
 export default App

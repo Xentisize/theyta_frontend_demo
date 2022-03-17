@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "url": "https://sg.news.yahoo.com/hong-kong-developers-property-agents-111652232.html",
+    "topic": "Housing",
+    "author": "Lam Ka-sing",
+    "title": "Hong Kong developers, property agents turn to virtual reality to keep sales moving as tightened social distancing measures take effect",
+    "content": "Hong Kong's tightened social distancing measures have cast a shadow on the property market. But as new project launches are delayed because of the fifth wave of the coronavirus outbreak, real estate agencies and developers are shifting their focus online to boost sales. Starting from Thursday, the city will impose an unprecedented ban on private gatherings of more than two households, temporarily close houses of worship and hair salons, and reduce the cap on public gatherings to just two people.",
+    "created_at": "2022-02-09",
+    "photo_url": "https://api.lorem.space/image/album?w=150&h=150"
+  },
+  {
+    "id": 2,
+    "url": "https://sg.news.yahoo.com/hong-kong-supply-called-nano-114521280.html",
+    "author": "Lam Ka-sing",
+    "topic": "Housing",
+    "title": "Hong Kong's supply of so-called nano flats to peak this year as government puts minimum size restrictions in place",
+    "content": "The era of nano flats in Hong Kong is likely to end soon. The availability of such flats is set to peak this year, after the government put a cap on the minimum size of homes late last year, say market observers. A total of 2,015 nano flats, with a saleable floor area of 215 square feet or less, are expected to be ready this year, compared with 960 units in 2021, according to JLL. These include 418 units at The Royale in Tuen Mun, 380 units in Manor Hill in Tseung Kwan O and 288 units at The Met. Azure in Tsing Yi.",
+    "created_at": "2022-02-08",
+    "photo_url": "https://api.lorem.space/image/album?w=150&h=150&hash=B0E33EF4"
+  },
+  {
+    "id": 3,
+    "url": "https://www.scmp.com/comment/letters/article/3163829/will-hong-kongs-hk32-million-government-overhaul-solve-housing",
+    "author": "John Fleming, Tung Chung",
+    "topic": "Housing",
+    "title": "Will Hong Kong's HK$32 million government overhaul solve the housing crisis?",
+    "content": "I am writing with reference to “Does Carrie lam's ambitious plan to overhaul the Hong Kong government go far enough?” (January 13). The report mentions that the changes will cost the government an extra HK$32 million (US$4 million) a year. The 'housing shortage' that has afflicted Hong Kong for decades is a structural problem. In a previous letter to the Post ('What lies behind Hong Kong's perpetual housing shortage', June 22), I discussed one of the major issues affecting the Hong Kong property market.",
+    "created_at": "2022-01-20",
+    "photo_url": "https://api.lorem.space/image/album?w=150&h=150&hash=225E6693"
+  }
+]

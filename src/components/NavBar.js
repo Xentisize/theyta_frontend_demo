@@ -3,8 +3,9 @@ import { BiBarChartAlt2 } from "react-icons/bi"
 import { FaPeopleCarry } from "react-icons/fa"
 import { useState } from "react"
 
-const NavBar = () => {
+const NavBar = ({ hasUser }) => {
 	const [toggleSideMenu, setToggleSideMenu] = useState(false)
+	const [user, setUser] = useState(hasUser)
 
 	return (
 		<>
@@ -23,6 +24,13 @@ const NavBar = () => {
 							</svg>
 						</label>
 					</div>
+					{user ? (
+						<label tabIndex="0" className="btn btn-ghost btn-circle avatar sm:order-first">
+							<div className="w-10 rounded-full">
+								<img src="https://api.lorem.space/image/face?hash=33791" alt="user avatar" />
+							</div>
+						</label>
+					) : null}
 					<a href="/" className="px-4 hover:bg-blue-50">
 						<img src="/images/logo_theyta_01_colour.svg" className="h-8 w-full" alt="Company Logo" />
 					</a>
@@ -64,7 +72,7 @@ const NavBar = () => {
 			</div>
 
 			{toggleSideMenu ? (
-				<aside className="w-15 mt-2 flex-col self-center bg-base-100/50 align-middle text-slate-400 md:hidden">
+				<aside className="w-15 mt-2 flex-col self-center bg-base-100/50 align-middle text-slate-400 lg:hidden">
 					<div className="overflow-y-auto rounded bg-base-100 px-3 py-4">
 						<ul className="space-y-2">
 							<li>
