@@ -9,6 +9,7 @@ import Feature from "./components/Feature"
 import NotFound from "./components/NotFound"
 import Contact from "./components/Contact"
 import ArticlesListPage from "./components/articles_list/ArticlesListPage"
+import Article from "./components/articles/Article"
 
 ReactDOM.render(
 	<React.StrictMode>
@@ -19,6 +20,7 @@ ReactDOM.render(
 				<Route path="/contact" element={<Contact />} />
 				<Route path="*" element={<NotFound />} />
 				<Route path="/articles" element={<ArticlesListPage />} />
+				<Route path="/articles/:articleId" element={<Article />} />
 				{/* <Route path="/contact" element={<Contact />} />
         <Route path="/features/a" element={<Feature feature={}} /> */}
 			</Routes>

@@ -1,5 +1,6 @@
 import articles from "./articles.json"
 import authors from "./authors.json"
+import { Link } from "react-router-dom"
 
 const ArticlesList = () => {
 	return (
@@ -48,7 +49,9 @@ const ArticlesList = () => {
 									</div>
 									<div className="basis-3/4">
 										<p className="pl-10 text-sm text-blue-500">{a.topic}</p>
-										<p className="pl-10 text-lg font-semibold text-slate-700 md:text-3xl">{a.title}</p>
+										<Link to={`/articles/${a.id}`}>
+											<p className="pl-10 text-lg font-semibold text-slate-700 md:text-3xl">{a.title}</p>
+										</Link>
 										<p className="mt-3 pl-10">
 											{a.created_at} - {a.author}
 										</p>
