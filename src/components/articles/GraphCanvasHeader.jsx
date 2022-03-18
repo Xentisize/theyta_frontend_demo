@@ -5,7 +5,7 @@ import { BiEdit, BiExpand } from "react-icons/bi"
 const GraphCanvasHeader = () => {
 	return (
 		<div className="flex flex-1 items-stretch rounded-t-xl bg-purple-200">
-			<div className="indicator avatar mr-2 py-4 pl-2 hover:rounded-tl-xl hover:bg-purple-300 md:mr-10 md:pr-6 md:pl-10">
+			<div className="indicator avatar mr-2 py-4 pl-2  md:mr-10 md:pr-6 md:pl-10">
 				<div className="w-10 rounded-full md:w-16">
 					<img
 						src="https://i.picsum.photos/id/1025/4951/3301.jpg?hmac=_aGh5AtoOChip_iaMo8ZvvytfEojcgqbCH7dzaz-H8Y"
