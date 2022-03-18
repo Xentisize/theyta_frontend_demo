@@ -28,18 +28,16 @@ const TopicsNavBar = () => {
 	]
 
 	return (
-		<div className="flex w-full overflow-x-auto border-t-2 border-b-4">
-			<div className="ml-5 py-5">
-				<label className="pr-5 text-sm font-light text-red-400">Topic</label>
-				{topics.map((t, i) => {
-					return (
-						<span key={t.id} className="inline shrink-0 px-5 text-xl font-semibold">
-							{t.topic}
-							<span className="pl-10 text-slate-300">/</span>
-						</span>
-					)
-				})}
-			</div>
+		<div className="ml-5 overflow-x-scroll whitespace-nowrap py-5">
+			<label className="pr-3 text-sm font-light text-red-400 md:pr-5">Topic</label>
+			{topics.map((t, i) => {
+				return (
+					<span key={t.id} className="shrink-0 px-2 text-base font-semibold md:px-5 md:text-xl">
+						{t.topic}
+						<span className="pl-3 text-slate-300 md:pl-10">/</span>
+					</span>
+				)
+			})}
 		</div>
 	)
 }

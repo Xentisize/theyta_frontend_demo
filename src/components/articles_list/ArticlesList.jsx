@@ -37,8 +37,8 @@ const ArticlesList = () => {
 				</div>
 				<div className="my-5 mx-5">
 					<div className="flex justify-between border-t-2 border-slate-200 py-5">
-						<p className="ml-10 text-2xl font-semibold">Latest Articles</p>
-						<button className="btn-outline btn mr-10">Read More</button>
+						<p className="ml-2 text-2xl font-semibold md:ml-10">Latest Articles</p>
+						<button className="btn-outline btn mr-2 md:mr-10">Read More</button>
 					</div>
 					<div>
 						{articles.map((a, i) => {
@@ -52,7 +52,7 @@ const ArticlesList = () => {
 										<Link to={`/articles/${a.id}`}>
 											<p className="pl-10 text-lg font-semibold text-slate-700 md:text-3xl">{a.title}</p>
 										</Link>
-										<p className="mt-3 pl-10">
+										<p className="mt-3 pl-10 text-sm md:text-base">
 											{a.created_at} - {a.author}
 										</p>
 									</div>
@@ -61,14 +61,14 @@ const ArticlesList = () => {
 						})}
 					</div>
 				</div>
-				<div className="mx-5 flex flex-col border-t-2 border-slate-200 pt-5">
-					<p className="ml-10 mb-5 text-2xl font-semibold">Authors</p>
-					<div className="mx-10 flex flex-row flex-wrap place-content-evenly">
+				<div className="mx-5 border-t-2 border-slate-200 pt-5">
+					<p className="ml-4 mb-5 text-lg font-semibold md:ml-10 md:text-2xl">Authors</p>
+					<div className="mx-auto flex flex-row flex-wrap justify-evenly gap-4 md:mx-10">
 						{authors.map((a, i) => {
 							return (
-								<div className="mb-10 basis-auto" key={a.id}>
-									<div className="avatar mx-auto">
-										<div className="w-24 rounded-full">
+								<div className="mb-5 self-center text-center md:mb-10" key={a.id}>
+									<div className="avatar">
+										<div className="mx-auto w-24 rounded-full">
 											<img src={a.avatar} alt="authors" />
 										</div>
 									</div>
