@@ -98,7 +98,7 @@ const Canvas = () => {
 
 	return (
 		<>
-			<div id="chart" className="h-[400px] w-full px-2 py-10 md:h-[800px]" ref={chartRef}></div>
+			<div id="chart" className="h-[400px] w-full px-4 py-10 md:h-[800px]" ref={chartRef}></div>
 		</>
 	)
 }

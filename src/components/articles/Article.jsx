@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom"
 import { BiSearchAlt } from "react-icons/bi"
 import { BsFillBookmarkPlusFill, BsClipboardData } from "react-icons/bs"
 import GraphCanvas from "./GraphCanvas"
+import Footer from "../Footer"
 
 const Article = () => {
 	let article_id = useParams().articleId - 1
@@ -33,10 +34,11 @@ const Article = () => {
 					<p className="text-lg">{article.content}</p>
 				</div>
 
-				<div className="mx-auto mt-10 w-4/5">
+				<div className="mx-auto mt-10 mb-5 w-4/5">
 					<GraphCanvas />
 				</div>
 			</div>
+			<Footer />
 		</>
 	)
 }

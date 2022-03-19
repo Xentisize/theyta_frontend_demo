@@ -1,0 +1,112 @@
+[
+  {
+    "id": 1,
+    "region": "Hong Kong, China",
+    "feature": "Hong Kong GDP",
+    "xAxis": [2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020],
+    "xAxisScale": null,
+    "yAxis": [262.63, 275.7, 291.46, 309.38, 320.84, 341.24, 361.69, 366.02, 346.59],
+    "yAxisScale": 1000000000,
+    "source": "https://tradingeconomics.com/hong-kong/gdp"
+  },
+  {
+    "id": 2,
+    "region": "Hong Kong, China",
+    "feature": "Number of domestic households in HK",
+    "xAxis": [2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020],
+    "xAxisScale": null,
+    "yAxis": [2386.2, 2407.3, 2432.4, 2471.1, 2498.9, 2534.7, 2571.5, 2614.4, 2645.2],
+    "yAxisScale": 1000,
+    "source": "https://www.censtatd.gov.hk/en/web_table.html?id=5"
+  },
+  {
+    "id": 3,
+    "region": "Hong Kong, China",
+    "feature": "Hang Seng Index (Annual)",
+    "xAxis": [2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020],
+    "xAxisScale": null,
+    "yAxis": [18770.64, 22860.25, 23452.76, 23699.20, 21782.62, 21993.36, 30028.29, 25824.44, 28249.37],
+    "yAxisScale": null,
+    "source": "https://finance.yahoo.com/quote/%5EHSI/history/"
+  },
+  {
+    "id": 4,
+    "region": "Hong Kong, China",
+    "feature": "Big Mac Index (HK)",
+    "xAxis": [2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020],
+    "xAxisScale": null,
+    "yAxis": [15.01, 16.5, 17, 18.8, 19.2, 19.2, 19.2, 20.0, 20.5, 20.5],
+    "yAxisScale": null,
+    "source": "https://data.nasdaq.com/data/ECONOMIST/BIGMAC_HKG-big-mac-index-hong-kong"
+  },
+  {
+    "id": 5,
+    "region": "Hong Kong, China",
+    "feature": "Centa City Leading Index (HK)",
+    "xAxis": [2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020],
+    "xAxisScale": null,
+    "yAxis": [94.16, 115.6, 118.96, 133.34, 134.41, 135.83, 165.59, 171.92, 176.98],
+    "yAxisScale": null,
+    "source": "http://hk.centanet.com/CCI/query/data?type=CCL"
+  },
+  {
+    "id": 6,
+    "region": "Hong Kong, China",
+    "feature": "Prime Rate (HK)",
+    "xAxis": [2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020],
+    "xAxisScale": null,
+    "yAxis": [5.00, 5.00, 5.00, 5.00, 5.00, 5.00, 5.03, 5.10, 5.00],
+    "yAxisScale": null,
+    "source": "https://www.censtatd.gov.hk/en/web_table.html?id=122"
+  },
+  {
+    "id": 7,
+    "region": "Hong Kong, China",
+    "feature": "Population (HK)",
+    "xAxis": [2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020],
+    "xAxisScale": null,
+    "yAxis": [7171.0, 7210.9, 7252.9, 7309.7, 7378.1, 7414.8, 7487.7, 7520.5, 7426.7],
+    "yAxisScale": 1000,
+    "source": "https://www.censtatd.gov.hk/en/web_table.html?id=1A"
+  },
+  {
+    "id": 8,
+    "region": "Hong Kong, China",
+    "feature": "Unemployment Rate",
+    "xAxis": [2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020],
+    "xAxisScale": null,
+    "yAxis": [3.3, 3.4, 3.3, 3.3, 3.4, 3.1, 2.8, 2.9, 5.8],
+    "yAxisScale": null,
+    "source": "https://www.censtatd.gov.hk/en/web_table.html?id=6"
+  },
+  {
+    "id": 9,
+    "region": "Hong Kong, China",
+    "feature": "Composite Consumer Price Index",
+    "xAxis": [2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020],
+    "xAxisScale": null,
+    "yAxis": [81.1, 84.6, 88.3, 91.0, 93.2, 94.6, 96.8, 99.6, 99.9],
+    "yAxisScale": null,
+    "source": "https://www.censtatd.gov.hk/en/web_table.html?id=6"
+  },
+  {
+    "id": 10,
+    "region": "Hong Kong, China",
+    "feature": "Mean Temperature (HK)",
+    "xAxis": [2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020],
+    "xAxisScale": null,
+    "yAxis": [23.4, 23.3, 23.5, 24.2, 23.6, 23.9, 23.9, 24.5, 24.4],
+    "yAxisScale": null,
+    "source": "https://www.hko.gov.hk/en/cis/yearlyExtract.htm"
+  },
+  {
+    "id": 11,
+    "region": "Hong Kong, China",
+    "feature": "Total Rainfall",
+    "xAxis": [2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020],
+    "xAxisScale": null,
+    "yAxis": [1924.7, 2847.3, 2638.3, 1874.5, 3026.8, 2572.1, 2162.9, 2396.2, 2395.0],
+    "yAxisScale": null,
+    "source": "https://www.hko.gov.hk/en/cis/yearlyExtract.htm"
+  }
+]
