@@ -4,7 +4,7 @@ import { BiEdit, BiExpand } from "react-icons/bi"
 import { useState } from "react"
 import GraphCanvasEditBar from "./GraphCanvasEditBar"
 
-const GraphCanvasHeader = () => {
+const GraphCanvasHeader = (props) => {
 	const [toggleEdit, setToggleEdit] = useState(false)
 
 	return (
@@ -53,7 +53,15 @@ const GraphCanvasHeader = () => {
 					</a>
 				</div>
 			</div>
-			{toggleEdit ? <GraphCanvasEditBar /> : null}
+			{toggleEdit ? (
+				<GraphCanvasEditBar
+					datasetOne={props.datasetOne}
+					datasetOneFormat={props.datasetOneFormat}
+					datasetTwo={props.datasetTwo}
+					datasetTwoFormat={props.datasetTwoFormat}
+					updateDatasetInfo={props.updateDatasetInfo}
+				/>
+			) : null}
 		</>
 	)
 }
