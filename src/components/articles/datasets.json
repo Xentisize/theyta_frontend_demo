@@ -14,7 +14,7 @@
 	{
 		"id": 2,
 		"region": "Hong Kong, China",
-		"feature": "Number of domestic households in HK",
+		"feature": "Number of Domestic Households in HK",
 		"xAxis": [2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020],
 		"xLabel": "Year",
 		"xAxisScale": null,

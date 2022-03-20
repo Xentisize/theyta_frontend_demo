@@ -5,13 +5,20 @@ import { BiSearchAlt } from "react-icons/bi"
 import { BsFillBookmarkPlusFill, BsClipboardData } from "react-icons/bs"
 import GraphCanvas from "./GraphCanvas"
 import Footer from "../Footer"
+import ShareFloatPage from "./ShareFloatPage"
+import { useState } from "react"
+import { Toaster } from "react-hot-toast"
 
 const Article = () => {
 	let article_id = useParams().articleId - 1
 	let article = articles[article_id]
 
+	const [showShare, setShowShare] = useState(false)
+
 	return (
 		<>
+			<Toaster position="top-center" />
+
 			<NavBar hasUser={true} />
 			<div className="flex w-full items-center justify-between border-b-2 border-slate-200 px-3 py-3 md:py-5 md:px-10">
 				<div className="text-base text-red-400 md:text-xl">
@@ -35,10 +42,13 @@ const Article = () => {
 				</div>
 
 				<div className="mx-auto mt-10 mb-5 w-4/5">
-					<GraphCanvas />
+					<GraphCanvas setShowShare={setShowShare} showShare={showShare} />
 				</div>
 			</div>
 			<Footer />
+			{/* {showShare ? <ShareFloatPage showShare={showShare} /> : null}
+			 */}
+			<ShareFloatPage />
 		</>
 	)
 }

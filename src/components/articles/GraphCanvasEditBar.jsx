@@ -24,7 +24,7 @@ const GraphCanvasEditBar = ({ datasetOne, datasetOneFormat, datasetTwo, datasetT
 	return (
 		<div className="flex flex-1 flex-col bg-slate-50 px-2 pt-2 md:px-5 md:py-5">
 			<div className="flex flex-wrap justify-start gap-x-5">
-				<div className="form-control w-full max-w-xs">
+				<div className="form-control w-full max-w-xs md:max-w-md">
 					<label className="label">
 						<span className="label-text">Dataset 1</span>
 					</label>
@@ -56,7 +56,7 @@ const GraphCanvasEditBar = ({ datasetOne, datasetOneFormat, datasetTwo, datasetT
 				</div>
 			</div>
 			<div className="flex flex-wrap justify-start gap-x-5">
-				<div className="form-control w-full max-w-xs">
+				<div className="form-control w-full max-w-xs md:max-w-md">
 					<label className="label">
 						<span className="label-text">Dataset 2</span>
 					</label>

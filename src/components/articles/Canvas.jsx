@@ -29,41 +29,41 @@ const Canvas = ({ appliedDatasets }) => {
 			},
 		],
 		yAxis: [
-			{
-				type: "value",
-				name: "Number of vacants x 1000",
-				min: 0,
-				max: 200,
-				position: "right",
-				axisLabel: {
-					formatter: "{value}",
-				},
-			},
-			{
-				type: "value",
-				name: "Unemployment Rate",
-				min: 0,
-				max: 20,
-				position: "left",
-				axisLabel: {
-					formatter: "{value} %",
-				},
-			},
+			// {
+			// 	type: "value",
+			// 	name: "Number of domestic households in HK",
+			// 	min: Math.floor(Math.min(...[2386.2, 2407.3, 2432.4, 2471.1, 2498.9, 2534.7, 2571.5, 2614.4, 2645.2])) * 0.9,
+			// 	max: Math.ceil(Math.max(...[2386.2, 2407.3, 2432.4, 2471.1, 2498.9, 2534.7, 2571.5, 2614.4, 2645.2])) * 1.1,
+			// 	position: "right",
+			// 	axisLabel: {
+			// 		formatter: "{value}",
+			// 	},
+			// },
+			// {
+			// 	type: "value",
+			// 	name: "Hong Kong GDP",
+			// 	min: Math.floor(Math.max(...[262.63, 275.7, 291.46, 309.38, 320.84, 341.24, 361.69, 366.02, 346.59])) * 0.9,
+			// 	max: Math.ceil(Math.max(...[262.63, 275.7, 291.46, 309.38, 320.84, 341.24, 361.69, 366.02, 346.59])) * 1.1,
+			// 	position: "left",
+			// 	axisLabel: {
+			// 		formatter: "{value}",
+			// 	},
+			// },
 		],
 		series: [
-			{
-				name: "Number of vacants",
-				type: "bar",
-				yAxisIndex: 0,
-				data: [6, 32, 70, 86, 68.7, 100.7],
-			},
-			{
-				name: "Unemployment Rate",
-				type: "line",
-				smooth: true,
-				yAxisIndex: 1,
-				data: [6.0, 10.2, 10.3, 11.5, 10.3, 13.2],
-			},
+			// {
+			// 	name: "Number of domestic households in HK",
+			// 	type: "bar",
+			// 	yAxisIndex: 0,
+			// 	data: [2386.2, 2407.3, 2432.4, 2471.1, 2498.9, 2534.7, 2571.5, 2614.4, 2645.2],
+			// },
+			// {
+			// 	name: "Hong Kong GDP",
+			// 	type: "line",
+			// 	smooth: true,
+			// 	yAxisIndex: 1,
+			// 	data: [262.63, 275.7, 291.46, 309.38, 320.84, 341.24, 361.69, 366.02, 346.59],
+			// },
 		],
 	}
 
@@ -85,8 +85,8 @@ const Canvas = ({ appliedDatasets }) => {
 			{
 				type: "value",
 				name: datasetOne.yLabel,
-				min: 0,
-				max: datasetOneMax,
+				min: Math.floor(datasetOneMin * 0.9),
+				max: Math.ceil(datasetOneMax * 1.1),
 				position: "right",
 				axisLabel: {
 					formatter: "{value}",
@@ -95,8 +95,8 @@ const Canvas = ({ appliedDatasets }) => {
 			{
 				type: "value",
 				name: datasetTwo.yLabel,
-				min: 0,
-				max: datasetTwoMax,
+				min: Math.floor(datasetTwoMin * 0.9),
+				max: Math.ceil(datasetTwoMax * 1.1),
 				position: "left",
 				axisLabel: {
 					formatter: "{value}",
