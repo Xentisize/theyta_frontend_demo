@@ -2,7 +2,7 @@ import { useRef, useEffect } from "react"
 import * as echarts from "echarts"
 import datasets from "./datasets.json"
 
-const Canvas = ({ appliedDatasets }) => {
+const Canvas = ({ appliedDatasets, expandCanvas }) => {
 	const chartRef = useRef(null)
 	let chartInstance = null
 
@@ -15,9 +15,9 @@ const Canvas = ({ appliedDatasets }) => {
 		},
 		grid: {
 			top: "30",
-			right: "60",
+			right: "50",
 			bottom: "17",
-			left: "60",
+			left: "50",
 		},
 		xAxis: [
 			{
@@ -123,7 +123,7 @@ const Canvas = ({ appliedDatasets }) => {
 			yAxis: yAxisOptions,
 			series: seriesOption,
 		}
-	}, [appliedDatasets])
+	}, [appliedDatasets, expandCanvas])
 
 	const renderChart = () => {
 		const renderedInstance = echarts.getInstanceByDom(chartRef.current)
@@ -140,6 +140,10 @@ const Canvas = ({ appliedDatasets }) => {
 	})
 
 	useEffect(() => {
+		chartInstance.resize()
+	}, [expandCanvas])
+
+	useEffect(() => {
 		return () => {
 			chartInstance && chartInstance.dispose()
 		}
@@ -154,7 +158,7 @@ const Canvas = ({ appliedDatasets }) => {
 
 	return (
 		<>
-			<div id="chart" className="h-[400px] w-full px-4 py-10 md:h-[800px]" ref={chartRef}></div>
+			<div id="chart" className="h-[300px] px-4 py-10 md:h-[600px]" ref={chartRef}></div>
 		</>
 	)
 }

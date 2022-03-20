@@ -76,8 +76,13 @@ const GraphCanvasHeader = (props) => {
 						<BiEdit className="mr-2 inline" />
 					</button>
 				</div>
-				<div className="flex grow items-center justify-center text-right hover:rounded-bl-3xl hover:bg-purple-300 hover:text-slate-200">
-					<button className="inline-block text-2xl md:text-5xl">
+				<div className="hidden grow items-center justify-center text-right hover:rounded-bl-3xl hover:bg-purple-300 hover:text-slate-200 md:flex">
+					<button
+						className="inline-block text-2xl md:text-5xl"
+						onClick={() => {
+							props.setExpandCanvas(!props.expandCanvas)
+						}}
+					>
 						<BiExpand className="mr-2 inline" />
 					</button>
 				</div>

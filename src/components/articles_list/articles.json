@@ -1,32 +1,50 @@
 [
-  {
-    "id": 1,
-    "url": "https://sg.news.yahoo.com/hong-kong-developers-property-agents-111652232.html",
-    "topic": "Housing",
-    "author": "Lam Ka-sing",
-    "title": "Hong Kong developers, property agents turn to virtual reality",
-    "content": "Hong Kong's tightened social distancing measures have cast a shadow on the property market. But as new project launches are delayed because of the fifth wave of the coronavirus outbreak, real estate agencies and developers are shifting their focus online to boost sales. Starting from Thursday, the city will impose an unprecedented ban on private gatherings of more than two households, temporarily close houses of worship and hair salons, and reduce the cap on public gatherings to just two people.",
-    "created_at": "2022-02-09",
-    "photo_url": "https://api.lorem.space/image/album?w=150&h=150"
-  },
-  {
-    "id": 2,
-    "url": "https://sg.news.yahoo.com/hong-kong-supply-called-nano-114521280.html",
-    "author": "Lam Ka-sing",
-    "topic": "Housing",
-    "title": "Hong Kong's supply of so-called nano flats to peak this year",
-    "content": "The era of nano flats in Hong Kong is likely to end soon. The availability of such flats is set to peak this year, after the government put a cap on the minimum size of homes late last year, say market observers. A total of 2,015 nano flats, with a saleable floor area of 215 square feet or less, are expected to be ready this year, compared with 960 units in 2021, according to JLL. These include 418 units at The Royale in Tuen Mun, 380 units in Manor Hill in Tseung Kwan O and 288 units at The Met. Azure in Tsing Yi.",
-    "created_at": "2022-02-08",
-    "photo_url": "https://api.lorem.space/image/album?w=150&h=150&hash=B0E33EF4"
-  },
-  {
-    "id": 3,
-    "url": "https://www.scmp.com/comment/letters/article/3163829/will-hong-kongs-hk32-million-government-overhaul-solve-housing",
-    "author": "John Tung Chung",
-    "topic": "Housing",
-    "title": "Will Hong Kong solve the housing crisis?",
-    "content": "I am writing with reference to “Does Carrie lam's ambitious plan to overhaul the Hong Kong government go far enough?” (January 13). The report mentions that the changes will cost the government an extra HK$32 million (US$4 million) a year. The 'housing shortage' that has afflicted Hong Kong for decades is a structural problem. In a previous letter to the Post ('What lies behind Hong Kong's perpetual housing shortage', June 22), I discussed one of the major issues affecting the Hong Kong property market.",
-    "created_at": "2022-01-20",
-    "photo_url": "https://api.lorem.space/image/album?w=150&h=150&hash=225E6693"
-  }
+	{
+		"id": 1,
+		"url": "https://sg.news.yahoo.com/hong-kong-developers-property-agents-111652232.html",
+		"topic": "Housing",
+		"author": "Lam Ka-sing",
+		"title": "Hong Kong developers, property agents turn to virtual reality",
+		"content": [
+			"Hong Kong's tightened social distancing measures have cast a shadow on the property market. But as new project launches are delayed because of the fifth wave of the coronavirus outbreak, real estate agencies and developers are shifting their focus online to boost sales. Starting from Thursday, the city will impose an unprecedented ban on private gatherings of more than two households, temporarily close houses of worship and hair salons, and reduce the cap on public gatherings to just two people.",
+			"Hong Kong's tightened social distancing measures have cast a shadow on the property market. But as new project launches are delayed because of the fifth wave of the coronavirus outbreak, real estate agencies and developers are shifting their focus online to boost sales.",
+			"Starting from Thursday, the city will impose an unprecedented ban on private gatherings of more than two households, temporarily close houses of worship and hair salons, and reduce the cap on public gatherings to just two people.",
+			"Centaline Property Agency expects fewer than 500 first-hand transactions this month, the lowest in 24 months, as these measures keep prospective buyers away. The agency expects second-hand property viewings to sink by half compared with levels seen before the Lunar New Year, which could push lived-in homes prices down 3 to 5 per cent compared with the end of last year."
+		],
+		"created_at": "2022-02-09",
+		"photo_url": "https://api.lorem.space/image/album?w=150&h=150"
+	},
+	{
+		"id": 2,
+		"url": "https://sg.news.yahoo.com/hong-kong-supply-called-nano-114521280.html",
+		"author": "Lam Ka-sing",
+		"topic": "Housing",
+		"title": "Hong Kong's supply of so-called nano flats to peak this year",
+		"content": [
+			"The era of nano flats in Hong Kong is likely to end soon. The availability of such flats is set to peak this year, after the government put a cap on the minimum size of homes late last year, say market observers. A total of 2,015 nano flats, with a saleable floor area of 215 square feet or less, are expected to be ready this year, compared with 960 units in 2021, according to JLL. These include 418 units at The Royale in Tuen Mun, 380 units in Manor Hill in Tseung Kwan O and 288 units at The Met. Azure in Tsing Yi.",
+			"The era of nano flats in Hong Kong is likely to end soon. The availability of such flats is set to peak this year, after the government put a cap on the minimum size of homes late last year, say market observers.",
+			"A total of 2,015 nano flats, with a saleable floor area of 215 square feet or less, are expected to be ready this year, compared with 960 units in 2021, according to JLL. These include 418 units at The Royale in Tuen Mun, 380 units in Manor Hill in Tseung Kwan O and 288 units at The Met. Azure in Tsing Yi.",
+			"'We predict the completion of nano flats will peak out this year,' said Ryan Ip, head of land and housing research at the think tank Our Hong Kong Foundation. 'Demand for nano flats has decreased after the government relaxed the mortgage requirements for higher-value properties in 2019, and this has been gradually reflected in the building plans of new residential projects.'"
+		],
+		"created_at": "2022-02-08",
+		"photo_url": "https://api.lorem.space/image/album?w=150&h=150&hash=B0E33EF4"
+	},
+	{
+		"id": 3,
+		"url": "https://www.scmp.com/comment/letters/article/3163829/will-hong-kongs-hk32-million-government-overhaul-solve-housing",
+		"author": "John Tung Chung",
+		"topic": "Housing",
+		"title": "Will Hong Kong solve the housing crisis?",
+		"content": [
+			"I am writing with reference to “Does Carrie lam's ambitious plan to overhaul the Hong Kong government go far enough?” (January 13). The report mentions that the changes will cost the government an extra HK$32 million (US$4 million) a year. The 'housing shortage' that has afflicted Hong Kong for decades is a structural problem. In a previous letter to the Post ('What lies behind Hong Kong's perpetual housing shortage', June 22), I discussed one of the major issues affecting the Hong Kong property market.",
+			"Now, I would like to comment on whether this government restructuring is likely to have any impact on the housing shortage.",
+			"The supply of homes is determined by a number of factors: land availability, infrastructure support, availability of construction workers, materials and equipment. From all the media reports, land supply would seem to be the bottleneck. However, Hong Kong uses less than 8 per cent of its available land for housing, so the simple question is: why do we not have enough land?",
+			"Reasons such as our hilly landscape and the preservation of country parks are not good enough. The real reason is that we are simply not building enough reasonably sized homes to allow families to live together, hence young people are moving away from their parents to have some space of their own.",
+			"There are a number of flats which are occupied by one elderly person. A thorough understanding of how public flats are being occupied – and not continuing to build smaller flats - is key to delivering a more effective solution.",
+			"The government needs to be focused. One solution is developing Yuen Long and its neighbouring districts to supply mid-to-high-density flats and creating a new commercial business district in the New Territories North West. This will facilitate the natural migration of people and ease the density in Kowloon and certain parts of Hong Kong Island.",
+			"I hope a new bureau focusing on housing will actually enable more homes to be constructed. We can discuss, plan and take a number of administrative measures, but these will not solve the problem. Building a mixture of reasonably sized flats and allowing people to cohabit will release some of the pressure on supply and minimise waste."
+		],
+		"created_at": "2022-01-20",
+		"photo_url": "https://api.lorem.space/image/album?w=150&h=150&hash=225E6693"
+	}
 ]

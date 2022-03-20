@@ -2,7 +2,7 @@ import GraphCanvasHeader from "./GraphCanvasHeader"
 import Canvas from "./Canvas"
 import { useState } from "react"
 
-const GraphCanvas = ({ setShowShare, showShare }) => {
+const GraphCanvas = ({ expandCanvas, setExpandCanvas }) => {
 	const [datasetInfo, setDatasetInfo] = useState({
 		dsOne: "Number of Domestic Households in HK",
 		dsOneFormat: "bar",
@@ -19,10 +19,10 @@ const GraphCanvas = ({ setShowShare, showShare }) => {
 					datasetTwo="Hong Kong GDP"
 					datasetTwoFormat="line"
 					updateDatasetInfo={setDatasetInfo}
-					setShowShare={setShowShare}
-					showShare={showShare}
+					expandCanvas={expandCanvas}
+					setExpandCanvas={setExpandCanvas}
 				/>
-				<Canvas appliedDatasets={datasetInfo} />
+				<Canvas appliedDatasets={datasetInfo} expandCanvas={expandCanvas} />
 			</div>
 		</>
 	)
