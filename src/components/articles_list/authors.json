@@ -1,32 +1,32 @@
 [
-  {
-    "id": 1,
-    "name": "Lam Ka-sing",
-    "url": "#",
-    "avatar": "https://api.lorem.space/image/face?w=150&h=150&hash=500B67FB"
-  },
-  {
-    "id": 2,
-    "name": "John Tung Chung",
-    "url": "#",
-    "avatar": "https://api.lorem.space/image/face?w=150&h=150&hash=4F32C4CF"
-  },
-  {
-    "id": 3,
-    "name": "Stone, John",
-    "url": "#",
-    "avatar": "https://api.lorem.space/image/face?w=150&h=150&hash=BDC01094"
-  },
-  {
-    "id": 4,
-    "name": "Virtue, Trevor",
-    "url": "#",
-    "avatar": "https://api.lorem.space/image/face?w=150&h=150&hash=2D297A22"
-  },
-  {
-    "id": 5,
-    "name": "Harry, Daly",
-    "url": "#",
-    "avatar": "https://api.lorem.space/image/face?w=150&h=150&hash=A89D0DE6"
-  }
+	{
+		"id": 1,
+		"name": "Lam Ka-song",
+		"url": "#",
+		"avatar": "https://api.lorem.space/image/face?w=150&h=150&hash=500B67FB"
+	},
+	{
+		"id": 2,
+		"name": "John Tung Chung",
+		"url": "#",
+		"avatar": "https://api.lorem.space/image/face?w=150&h=150&hash=4F32C4CF"
+	},
+	{
+		"id": 3,
+		"name": "Stone, John",
+		"url": "#",
+		"avatar": "https://api.lorem.space/image/face?w=150&h=150&hash=BDC01094"
+	},
+	{
+		"id": 4,
+		"name": "Virtue, Trevor",
+		"url": "#",
+		"avatar": "https://api.lorem.space/image/face?w=150&h=150&hash=2D297A22"
+	},
+	{
+		"id": 5,
+		"name": "Li, Ang",
+		"url": "#",
+		"avatar": "https://api.lorem.space/image/face?w=150&h=150&hash=A89D0DE6"
+	}
 ]

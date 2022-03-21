@@ -53,14 +53,14 @@ const Article = () => {
 					})}
 				</div>
 
-				<div className="mx-5 mt-5 mb-5 flex flex-col flex-wrap gap-3 border-t-2 border-slate-200 pb-2 md:mx-20 md:flex-row">
-					<h3 className="block basis-full pt-3 text-lg font-semibold">You may also be interested:</h3>
+				<div className="mx-5 mt-5 mb-5 flex flex-1 flex-col flex-wrap items-stretch gap-5 border-t-2 border-slate-200 pb-2 md:flex-row">
+					<h3 className="block basis-full pt-1 text-lg font-semibold md:pt-3">You may also be interested:</h3>
 					{articles.map((a, i) => {
 						return i !== article_id ? (
-							<Link to={`/articles/${a.id}`} key={i}>
-								<div className="card mt-3 bg-base-100 shadow-xl md:basis-1/3 lg:card-side">
+							<Link to={`/articles/${a.id}`} key={i} className="md:w-1/4">
+								<div className="card mt-3 w-full bg-base-100 shadow-xl md:h-32 lg:card-side">
 									<figure>
-										<img src={a.photo_url} alt="Article Cover" />
+										<img src={a.photo_url} alt="Article Cover" className="w-32" />
 									</figure>
 									<div className="card-body">
 										<h2 className="card-title text-base font-semibold md:text-lg">{a.title}</h2>
