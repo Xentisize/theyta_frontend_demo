@@ -15,3 +15,9 @@ code {
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+	mark {
+		@apply bg-inherit text-red-400 underline decoration-sky-500 decoration-dotted underline-offset-4;
+	}
+}

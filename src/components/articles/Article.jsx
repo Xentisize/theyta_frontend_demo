@@ -28,7 +28,44 @@ const Article = () => {
 		widthInPixel: 70,
 	})
 	const [selectedRange, setSelectedRange] = useState(null)
-	const [comments, setComments] = useState([])
+	const [comments, setComments] = useState([
+		{
+			id: 1647882962153,
+			author: "Lam Ka-song",
+			message:
+				"Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quas non unde fugit, veniam vel quis, obcaecati cum iusto aspernatur quo nobis sequi beatae ullam ipsa? Accusantium atque odio ab tenetur!",
+		},
+		{
+			id: 1647883026008,
+			author: "Li, Ang",
+			message:
+				"Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia itaque distinctio modi atque possimus, nesciunt odio, nam consectetur sequi delectus laborum molestias. Facere mollitia quam quia voluptatibus id. Minima, fugiat.",
+		},
+		{
+			id: 1647883089165,
+			author: "Stone, John",
+			message:
+				"Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eligendi veniam amet dolores ea quidem, nemo iusto, alias eum consectetur cupiditate quibusdam perspiciatis aliquam vitae laudantium molestias rerum deserunt at debitis.",
+		},
+		{
+			id: 1647884791063,
+			author: "John Tung Chung",
+			message:
+				"Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eligendi veniam amet dolores ea quidem, nemo iusto, alias eum consectetur cupiditate quibusdam perspiciatis aliquam vitae laudantium molestias rerum deserunt at debitis.",
+		},
+		{
+			id: 1647873089165,
+			author: "Stone, John",
+			message:
+				"Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eligendi veniam amet dolores ea quidem, nemo iusto, alias eum consectetur cupiditate quibusdam perspiciatis aliquam vitae laudantium molestias rerum deserunt at debitis.",
+		},
+		{
+			id: 1647883189165,
+			author: "Virtue, Trevor",
+			message:
+				"Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eligendi veniam amet dolores ea quidem, nemo iusto, alias eum consectetur cupiditate quibusdam perspiciatis aliquam vitae laudantium molestias rerum deserunt at debitis.",
+		},
+	])
 
 	const setHighlightBtnGroupPosition = ({ left, top, width, height }) => {
 		const { heightInPixel, widthInPixel } = highlightBtnGroupLayout
@@ -67,10 +104,8 @@ const Article = () => {
 	}
 
 	const saveAndRestoreSelection = () => {
-		console.log("saveAndRestoreSelection")
 		const savedSelection = saveSelection()
 		setSelectedRange(savedSelection)
-		// setHideCommentBox(!hideCommentBox)
 		setHideBtnGroup(!hideBtnGroup)
 		restoreSelection(savedSelection)
 	}
@@ -126,9 +161,11 @@ const Article = () => {
 				</div>
 
 				<div className="flex justify-between">
-					<div className={"mx-auto mt-10 mb-5 w-full md:ml-20 " + (expandCanvas ? "md:mr-20 md:w-full" : "md:w-3/5 ")}>
+					<div className={"mt-10 mb-5 w-full md:ml-20 " + (expandCanvas ? "md:mr-10 md:w-full" : "md:w-3/5 ")}>
 						<GraphCanvas expandCanvas={expandCanvas} setExpandCanvas={setExpandCanvas} />
 					</div>
+
+					{!expandCanvas ? <CommentList comments={comments} /> : null}
 				</div>
 
 				<div className="mx-auto w-3/4 pt-3 pb-5">
@@ -170,7 +207,6 @@ const Article = () => {
 				toggleCommentBox={toggleCommentBox}
 				toggleBtnGroup={toggleBtnGroup}
 			/>
-			<CommentList comments={comments} />
 
 			<Footer />
 		</>

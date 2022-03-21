@@ -12,6 +12,7 @@ const CommentBox = ({ updateCommentList, toggleCommentBox, toggleBtnGroup, selec
 
 			updateCommentList({
 				id: uniqueId,
+				author: "Me",
 				message: comment,
 			})
 
@@ -33,6 +34,10 @@ const CommentBox = ({ updateCommentList, toggleCommentBox, toggleBtnGroup, selec
 	const wrapSelectedTextWithId = (uniqueId) => {
 		const markWrapper = document.createElement("mark")
 		markWrapper.setAttribute("id", uniqueId)
+		markWrapper.setAttribute(
+			"class",
+			"underline decoration-sky-500 underline-offset-4 decoration-2 text-red-400 decoration-dotted bg-inherit"
+		)
 		selectedRange.surroundContents(markWrapper)
 	}
 
@@ -41,7 +46,6 @@ const CommentBox = ({ updateCommentList, toggleCommentBox, toggleBtnGroup, selec
 			<input type="checkbox" id="commentBox" className="modal-toggle" />
 			<div className="modal-bottom sm:modal-middle modal">
 				<div className="modal-box">
-					{/* <h3 className="text-base font-semibold">Leave your comment</h3> */}
 					<div className="form-control">
 						<label className="label">
 							<span className="label-text font-semibold">Speak aloud</span>
