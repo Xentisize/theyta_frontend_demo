@@ -72,6 +72,7 @@ const Article = () => {
 					})}
 				</div>
 			</div>
+
 			<Footer />
 		</>
 	)
