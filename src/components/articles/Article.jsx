@@ -38,7 +38,7 @@ const Article = () => {
 					</p>
 				</div>
 				<div className="mx-auto w-3/4 pt-5 ">
-					<p className="text-lg">{article.content[0]}</p>
+					<p className="text-lg" dangerouslySetInnerHTML={{ __html: article.content[0] }}></p>
 				</div>
 
 				<div className="flex justify-between">
@@ -49,11 +49,7 @@ const Article = () => {
 
 				<div className="mx-auto w-3/4 pt-3 pb-5">
 					{article.content.map((p, i) => {
-						return i !== 0 ? (
-							<p className="py-2 text-lg" key={i}>
-								{p}
-							</p>
-						) : null
+						return i !== 0 ? <p className="py-2 text-lg" key={i} dangerouslySetInnerHTML={{ __html: p }}></p> : null
 					})}
 				</div>
 

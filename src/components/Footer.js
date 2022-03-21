@@ -1,6 +1,6 @@
 const Footer = () => {
 	return (
-		<footer className="footer items-center justify-center bg-slate-800 p-4 text-neutral-content">
+		<footer className="footer items-center justify-center bg-slate-800 px-4 text-neutral-content">
 			<a href="#hero">
 				<img
 					src="/images/logo_theyta_01_colour.png"

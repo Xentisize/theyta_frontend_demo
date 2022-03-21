@@ -4,10 +4,10 @@ import { Link } from "react-router-dom"
 
 const ArticlesList = () => {
 	return (
-		<div className="mx-auto w-5/6 -translate-y-6 rounded-lg bg-white drop-shadow-lg">
+		<div className="mx-auto w-5/6 -translate-y-3 rounded-lg bg-white drop-shadow-lg md:-translate-y-6">
 			<div className="flex flex-col">
 				<div className="flex flex-row flex-wrap">
-					<div className="basis-full px-10 py-2 md:basis-1/3 md:py-10">
+					<div className="basis-full px-10 py-5 md:basis-1/3 md:py-10">
 						<select className="select-bordered select-secondary select w-full">
 							<option>Business</option>
 							<option>Housing</option>
@@ -37,15 +37,15 @@ const ArticlesList = () => {
 				</div>
 				<div className="my-5 mx-5">
 					<div className="flex justify-between border-t-2 border-slate-200 py-5">
-						<p className="ml-2 text-2xl font-semibold md:ml-10">Latest Articles</p>
-						<button className="btn-outline btn mr-2 md:mr-10">Read More</button>
+						<p className="ml-2 text-lg font-semibold md:ml-10 md:text-2xl">Latest Articles</p>
+						<button className="btn-outline btn btn-sm md:btn-md md:mr-10">Read More</button>
 					</div>
 					<div>
 						{articles.map((a, i) => {
 							return (
 								<div className="mb-5 flex grow" key={a.id}>
 									<div className="basis-1/4">
-										<img src={a.photo_url} alt="article photo" className="mx-auto" />
+										<img src={a.photo_url} alt="article covers" className="mx-auto md:w-1/2" />
 									</div>
 									<div className="basis-3/4">
 										<p className="pl-10 text-sm text-blue-500">{a.topic}</p>
