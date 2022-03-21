@@ -8,6 +8,9 @@ import Footer from "../Footer"
 import { useState } from "react"
 import { Toaster } from "react-hot-toast"
 import { Link } from "react-router-dom"
+import CommentBox from "./CommentBox"
+import CommentList from "./CommentList"
+import HighlightBtnGroup from "./HighlightBtnGroup"
 
 const Article = () => {
 	let article_id = useParams().articleId - 1
@@ -15,10 +18,90 @@ const Article = () => {
 
 	const [expandCanvas, setExpandCanvas] = useState(false)
 
+	const [hideCommentBox, setHideCommentBox] = useState(true)
+	const [hideBtnGroup, setHideBtnGroup] = useState(true)
+	const [highlightBtnGroupLayout, setHighlightBtnGroupLayout] = useState({
+		position: "absolute",
+		left: "0",
+		top: "0",
+		heightInPixel: 28,
+		widthInPixel: 70,
+	})
+	const [selectedRange, setSelectedRange] = useState(null)
+	const [comments, setComments] = useState([])
+
+	const setHighlightBtnGroupPosition = ({ left, top, width, height }) => {
+		const { heightInPixel, widthInPixel } = highlightBtnGroupLayout
+		const computedLeft = left + width / 2 - widthInPixel / 2
+		const computedTop = window.scrollY + top - heightInPixel
+
+		setHighlightBtnGroupLayout({
+			...highlightBtnGroupLayout,
+			left: computedLeft,
+			top: computedTop,
+		})
+	}
+
+	const saveSelection = () => {
+		if (window.getSelection) {
+			const selected = window.getSelection()
+			if (selected.getRangeAt && selected.rangeCount) {
+				return selected.getRangeAt(0)
+			}
+		}
+		return null
+	}
+
+	const restoreSelection = (range) => {
+		if (range) {
+			if (window.getSelection) {
+				const selected = window.getSelection()
+				selected.removeAllRanges()
+				selected.addRange(range)
+			}
+		}
+	}
+
+	const updateCommentList = (newComment) => {
+		setComments([...comments, newComment])
+	}
+
+	const saveAndRestoreSelection = () => {
+		console.log("saveAndRestoreSelection")
+		const savedSelection = saveSelection()
+		setSelectedRange(savedSelection)
+		// setHideCommentBox(!hideCommentBox)
+		setHideBtnGroup(!hideBtnGroup)
+		restoreSelection(savedSelection)
+	}
+
+	const toggleCommentBox = () => {
+		setHideCommentBox(!hideCommentBox)
+	}
+
+	const toggleBtnGroup = () => {
+		setHideBtnGroup(!hideBtnGroup)
+	}
+
+	const bubbleUpSelectedRegion = (e) => {
+		const selection = window.getSelection()
+
+		if (selection.toString()) {
+			const range = selection.getRangeAt(0)
+			const rect = range.getBoundingClientRect()
+
+			setHighlightBtnGroupPosition(rect)
+			setHideBtnGroup(false)
+		} else if (selection.toString() === "") {
+			setHideBtnGroup(true)
+		}
+	}
+
 	return (
 		<>
 			<Toaster position="top-center" />
 
+			{/* Header + HeaderBar */}
 			<NavBar hasUser={true} />
 			<div className="flex w-full items-center justify-between border-b-2 border-slate-200 px-3 py-3 md:py-5 md:px-10">
 				<div className="text-base text-red-400 md:text-xl">
@@ -30,7 +113,8 @@ const Article = () => {
 					<BsFillBookmarkPlusFill className="ml-5 inline h-8 w-8 text-red-400" />
 				</div>
 			</div>
-			<div className="flex flex-col">
+
+			<div className="flex flex-col" onMouseUp={() => bubbleUpSelectedRegion} onMouseMove={bubbleUpSelectedRegion}>
 				<div className="mx-auto w-3/4">
 					<h1 className="pt-5 text-2xl font-semibold text-slate-700 md:text-5xl">{article.title}</h1>
 					<p className="mt-3 text-sm font-light md:text-base">
@@ -38,7 +122,7 @@ const Article = () => {
 					</p>
 				</div>
 				<div className="mx-auto w-3/4 pt-5 ">
-					<p className="text-lg" dangerouslySetInnerHTML={{ __html: article.content[0] }}></p>
+					<p className="text-lg" dangerouslySetInnerHTML={{ __html: article.content[0] }} data-paragraph="0"></p>
 				</div>
 
 				<div className="flex justify-between">
@@ -49,7 +133,9 @@ const Article = () => {
 
 				<div className="mx-auto w-3/4 pt-3 pb-5">
 					{article.content.map((p, i) => {
-						return i !== 0 ? <p className="py-2 text-lg" key={i} dangerouslySetInnerHTML={{ __html: p }}></p> : null
+						return i !== 0 ? (
+							<p className="py-2 text-lg" key={i} dangerouslySetInnerHTML={{ __html: p }} data-paragraph={i}></p>
+						) : null
 					})}
 				</div>
 
@@ -72,6 +158,19 @@ const Article = () => {
 					})}
 				</div>
 			</div>
+
+			<HighlightBtnGroup
+				layout={highlightBtnGroupLayout}
+				hidden={hideBtnGroup}
+				saveAndRestoreSelection={saveAndRestoreSelection}
+			/>
+			<CommentBox
+				selectedRange={selectedRange}
+				updateCommentList={updateCommentList}
+				toggleCommentBox={toggleCommentBox}
+				toggleBtnGroup={toggleBtnGroup}
+			/>
+			<CommentList comments={comments} />
 
 			<Footer />
 		</>
