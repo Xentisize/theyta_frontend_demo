@@ -14,18 +14,21 @@ const CommentList = ({ comments }) => {
 					})
 					.map((c, i) => {
 						return (
-							<div key={c.id} className={"px-5 py-3 shadow-xl " + ((i + 1) % 2 ? "bg-sky-50" : "bg-white")}>
+							<div key={c.id} className={"mx-5 py-3 shadow-xl " + ((i + 1) % 2 ? "bg-sky-50" : "bg-white")}>
 								<a href={`#${c.id}`}>
-									<strong className="text-sm font-semibold italic text-slate-600">{c.author}:</strong>
-								</a>
-								<div className="flex">
-									<div className="avatar">
-										<div className="w-24 rounded-full">
-											<img src={"https://api.lorem.space/image/face?w=100&h=100&" + Math.random()} alt="avatar" />
+									<div className="avatar mr-2 pl-3">
+										<div className="w-12 rounded-full">
+											<img
+												src={"https://api.lorem.space/image/face?w=100&h=100&" + Math.random()}
+												alt="avatar"
+												className="w-8"
+											/>
 										</div>
 									</div>
-									<p className="px-5 pt-3">{c.message}</p>
-								</div>
+									<strong className="text-sm font-semibold italic text-slate-600">{c.author}:</strong>
+
+									<p className="px-8 pt-3">{c.message}</p>
+								</a>
 							</div>
 						)
 					})}
