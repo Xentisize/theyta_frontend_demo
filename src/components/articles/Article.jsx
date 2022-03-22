@@ -184,7 +184,7 @@ const Article = () => {
 						return i !== article_id ? (
 							<Link to={`/articles/${a.id}`} key={i} className="md:w-1/4">
 								<div className="card mt-3 w-full bg-base-100 shadow-xl md:h-32 lg:card-side">
-									<figure>
+									<figure>i 
 										<img src={a.photo_url} alt="Article Cover" className="w-32" />
 									</figure>
 									<div className="card-body">
