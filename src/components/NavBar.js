@@ -1,11 +1,11 @@
-import { BsDownload, BsClipboardData } from "react-icons/bs"
-import { BiBarChartAlt2 } from "react-icons/bi"
-import { FaPeopleCarry } from "react-icons/fa"
-import { useState } from "react"
+import { BsDownload, BsClipboardData } from "react-icons/bs";
+import { BiBarChartAlt2 } from "react-icons/bi";
+import { FaPeopleCarry } from "react-icons/fa";
+import { useState } from "react";
 
 const NavBar = ({ hasUser }) => {
-	const [toggleSideMenu, setToggleSideMenu] = useState(false)
-	const [user, setUser] = useState(hasUser)
+	const [toggleSideMenu, setToggleSideMenu] = useState(false);
+	const [user, setUser] = useState(hasUser);
 
 	return (
 		<>
@@ -63,12 +63,6 @@ const NavBar = ({ hasUser }) => {
           </ul>
         </div>
       </div> */}
-
-				<div className="navbar-end hidden lg:flex">
-					<a className="btn-outline btn btn-accent" href="#download_app">
-						Download App
-					</a>
-				</div>
 			</div>
 
 			{toggleSideMenu ? (
@@ -107,7 +101,7 @@ const NavBar = ({ hasUser }) => {
 				</aside>
 			) : null}
 		</>
-	)
-}
+	);
+};
 
-export default NavBar
+export default NavBar;
