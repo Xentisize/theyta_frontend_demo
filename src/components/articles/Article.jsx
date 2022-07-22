@@ -1,138 +1,134 @@
-import NavBar from "../NavBar"
-import articles from "../articles_list/articles.json"
-import { useParams } from "react-router-dom"
-import { BiSearchAlt } from "react-icons/bi"
-import { BsFillBookmarkPlusFill, BsClipboardData } from "react-icons/bs"
-import GraphCanvas from "./GraphCanvas"
-import Footer from "../Footer"
-import { useState } from "react"
-import { Toaster } from "react-hot-toast"
-import { Link } from "react-router-dom"
-import CommentBox from "./CommentBox"
-import CommentList from "./CommentList"
-import HighlightBtnGroup from "./HighlightBtnGroup"
+import NavBar from "../NavBar";
+import articles from "../articles_list/articles.json";
+import { useParams } from "react-router-dom";
+import { BiSearchAlt } from "react-icons/bi";
+import { BsFillBookmarkPlusFill, BsClipboardData } from "react-icons/bs";
+import GraphCanvas from "./GraphCanvas";
+import Footer from "../Footer";
+import { useState } from "react";
+import { Toaster } from "react-hot-toast";
+import { Link } from "react-router-dom";
+import CommentBox from "./CommentBox";
+import CommentList from "./CommentList";
+import HighlightBtnGroup from "./HighlightBtnGroup";
 
 const Article = () => {
-	let article_id = useParams().articleId - 1
-	let article = articles[article_id]
+	let article_id = useParams().articleId - 1;
+	let article = articles[article_id];
 
-	const [expandCanvas, setExpandCanvas] = useState(false)
+	const [expandCanvas, setExpandCanvas] = useState(false);
 
-	const [hideCommentBox, setHideCommentBox] = useState(true)
-	const [hideBtnGroup, setHideBtnGroup] = useState(true)
+	const [hideCommentBox, setHideCommentBox] = useState(true);
+	const [hideBtnGroup, setHideBtnGroup] = useState(true);
 	const [highlightBtnGroupLayout, setHighlightBtnGroupLayout] = useState({
 		position: "absolute",
 		left: "0",
 		top: "0",
 		heightInPixel: 28,
 		widthInPixel: 70,
-	})
-	const [selectedRange, setSelectedRange] = useState(null)
+	});
+	const [selectedRange, setSelectedRange] = useState(null);
 	const [comments, setComments] = useState([
 		{
 			id: 1647882962153,
 			author: "Lam Ka-song",
-			message:
-				"Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quas non unde fugit, veniam vel quis, obcaecati cum iusto aspernatur quo nobis sequi beatae ullam ipsa? Accusantium atque odio ab tenetur!",
+			message: "Such decision is disgraceful.",
 		},
 		{
 			id: 1647883026008,
 			author: "Li, Ang",
 			message:
-				"Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia itaque distinctio modi atque possimus, nesciunt odio, nam consectetur sequi delectus laborum molestias. Facere mollitia quam quia voluptatibus id. Minima, fugiat.",
+				"The underlying factors that have made Hong Kong's housing market the world's most expensive have not changed",
 		},
 		{
 			id: 1647883089165,
 			author: "Stone, John",
-			message:
-				"Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eligendi veniam amet dolores ea quidem, nemo iusto, alias eum consectetur cupiditate quibusdam perspiciatis aliquam vitae laudantium molestias rerum deserunt at debitis.",
+			message: "The signs of a slowdown in the housing market are beginning to pile up.",
 		},
 		{
 			id: 1647884791063,
 			author: "John Tung Chung",
-			message:
-				"Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eligendi veniam amet dolores ea quidem, nemo iusto, alias eum consectetur cupiditate quibusdam perspiciatis aliquam vitae laudantium molestias rerum deserunt at debitis.",
+			message: "Despite high home prices and inflation, a housing market pullback.",
 		},
 		{
 			id: 1647873089165,
 			author: "Stone, John",
 			message:
-				"Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eligendi veniam amet dolores ea quidem, nemo iusto, alias eum consectetur cupiditate quibusdam perspiciatis aliquam vitae laudantium molestias rerum deserunt at debitis.",
+				"But, if you buy a property this way, it might not appreciate for years as the market takes time to catch up to your top bid.",
 		},
 		{
 			id: 1647883189165,
 			author: "Virtue, Trevor",
-			message:
-				"Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eligendi veniam amet dolores ea quidem, nemo iusto, alias eum consectetur cupiditate quibusdam perspiciatis aliquam vitae laudantium molestias rerum deserunt at debitis.",
+			message: "The downtrend in our property markets continues as buyer and seller confidence wanes",
 		},
-	])
+	]);
 
 	const setHighlightBtnGroupPosition = ({ left, top, width, height }) => {
-		const { heightInPixel, widthInPixel } = highlightBtnGroupLayout
-		const computedLeft = left + width / 2 - widthInPixel / 2
-		const computedTop = window.scrollY + top - heightInPixel
+		const { heightInPixel, widthInPixel } = highlightBtnGroupLayout;
+		const computedLeft = left + width / 2 - widthInPixel / 2;
+		const computedTop = window.scrollY + top - heightInPixel;
 
 		setHighlightBtnGroupLayout({
 			...highlightBtnGroupLayout,
 			left: computedLeft,
 			top: computedTop,
-		})
-	}
+		});
+	};
 
 	const saveSelection = () => {
 		if (window.getSelection) {
-			const selected = window.getSelection()
+			const selected = window.getSelection();
 			if (selected.getRangeAt && selected.rangeCount) {
-				return selected.getRangeAt(0)
+				return selected.getRangeAt(0);
 			}
 		} else if (document.selection && document.selection.createRange) {
-			return document.selection.createRange()
+			return document.selection.createRange();
 		}
-		return null
-	}
+		return null;
+	};
 
 	const restoreSelection = (range) => {
 		if (range) {
 			if (window.getSelection) {
-				const selected = window.getSelection()
-				selected.removeAllRanges()
-				selected.addRange(range)
+				const selected = window.getSelection();
+				selected.removeAllRanges();
+				selected.addRange(range);
 			}
 		}
-	}
+	};
 
 	const updateCommentList = (newComment) => {
-		setComments([...comments, newComment])
-	}
+		setComments([...comments, newComment]);
+	};
 
 	const saveAndRestoreSelection = () => {
-		const savedSelection = saveSelection()
-		setSelectedRange(savedSelection)
-		setHideBtnGroup(!hideBtnGroup)
-		restoreSelection(savedSelection)
-	}
+		const savedSelection = saveSelection();
+		setSelectedRange(savedSelection);
+		setHideBtnGroup(!hideBtnGroup);
+		restoreSelection(savedSelection);
+	};
 
 	const toggleCommentBox = () => {
-		setHideCommentBox(!hideCommentBox)
-	}
+		setHideCommentBox(!hideCommentBox);
+	};
 
 	const toggleBtnGroup = () => {
-		setHideBtnGroup(!hideBtnGroup)
-	}
+		setHideBtnGroup(!hideBtnGroup);
+	};
 
 	const bubbleUpSelectedRegion = (e) => {
-		const selection = window.getSelection()
+		const selection = window.getSelection();
 
 		if (selection.toString()) {
-			const range = selection.getRangeAt(0)
-			const rect = range.getBoundingClientRect()
+			const range = selection.getRangeAt(0);
+			const rect = range.getBoundingClientRect();
 
-			setHighlightBtnGroupPosition(rect)
-			setHideBtnGroup(false)
+			setHighlightBtnGroupPosition(rect);
+			setHideBtnGroup(false);
 		} else if (selection.toString() === "") {
-			setHideBtnGroup(true)
+			setHideBtnGroup(true);
 		}
-	}
+	};
 
 	return (
 		<>
@@ -174,7 +170,7 @@ const Article = () => {
 					{article.content.map((p, i) => {
 						return i !== 0 ? (
 							<p className="py-2 text-lg" key={i} dangerouslySetInnerHTML={{ __html: p }} data-paragraph={i}></p>
-						) : null
+						) : null;
 					})}
 				</div>
 
@@ -184,7 +180,8 @@ const Article = () => {
 						return i !== article_id ? (
 							<Link to={`/articles/${a.id}`} key={i} className="md:w-1/4">
 								<div className="card mt-3 w-full bg-base-100 shadow-xl md:h-32 lg:card-side">
-									<figure>i 
+									<figure>
+										i
 										<img src={a.photo_url} alt="Article Cover" className="w-32" />
 									</figure>
 									<div className="card-body">
@@ -193,7 +190,7 @@ const Article = () => {
 									</div>
 								</div>
 							</Link>
-						) : null
+						) : null;
 					})}
 				</div>
 			</div>
@@ -212,7 +209,7 @@ const Article = () => {
 
 			<Footer />
 		</>
-	)
-}
+	);
+};
 
-export default Article
+export default Article;
