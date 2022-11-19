@@ -20,4 +20,9 @@ code {
 	mark {
 		@apply bg-inherit text-red-400 underline decoration-sky-500 decoration-dotted underline-offset-4;
 	}
+
+  .highlight {
+    @apply text-red-400 font-semibold bg-yellow-200;
+  }
 }
+
