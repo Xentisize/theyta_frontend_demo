@@ -32,12 +32,21 @@ import {
 
 import { stopwords } from "./stopwords";
 import SuggestionSidebar from "./SuggestionSidebar";
+import TreeViewPlugin from "./plugins/TreeViewPlugin";
+// import AutocompletePlugin from "./plugins/AutocompletePlugin";
+// import { AutocompleteNode } from "./nodes/AutocompleteNode";
+// import { SharedAutocompleteContext } from "./context/SharedAutocompleteContext";
 
 function onChange(state, setAnchorText) {
 	state.read(() => {
 		const root = $getRoot();
 		// const selection = $getSelection();
-		const anchorText = root.getTextContent().split(" ").slice(-1);
+		const anchorText = root
+			.getTextContent()
+			.replaceAll(/\n/g, " ")
+			.replaceAll(/[?.,!-]/g, " ")
+			.split(" ")
+			.slice(-1);
 
 		if (!stopwords.includes(anchorText)) {
 			setAnchorText(anchorText[0]);
@@ -64,6 +73,7 @@ export const Editor = ({ anchorText, setAnchorText }) => {
 					onError(error) {
 						throw error;
 					},
+					nodes: [],
 				}}
 			>
 				<Toolbar />
@@ -83,12 +93,15 @@ export const Editor = ({ anchorText, setAnchorText }) => {
 					<SuggestionSidebar anchorText={anchorText} />
 					<h2 className="basis-1/2 text-center text-xl font-semibold text-slate-400">Charts to Inspire</h2>
 				</div>
+
+				<TreeViewPlugin />
+				{/* <DragDropPaste /> */}
 			</LexicalComposer>
 		</div>
 	);
 };
 
-const Toolbar = () => {
+export const Toolbar = () => {
 	const [editor] = useLexicalComposerContext();
 	const [isBold, setIsBold] = React.useState(false);
 	const [isItalic, setIsItalic] = React.useState(false);

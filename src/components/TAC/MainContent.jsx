@@ -116,7 +116,7 @@ export default function MainContent({ setTitle, coverImage, setCoverImage, ancho
 					<img
 						src={coverImage}
 						alt="cover"
-						className="w-2/3 cursor-pointer rounded-lg opacity-80 shadow-md"
+						className="w-4/12 cursor-pointer rounded-lg opacity-80 shadow-md"
 						onClick={() => setCoverImage("")}
 					/>
 				</div>
