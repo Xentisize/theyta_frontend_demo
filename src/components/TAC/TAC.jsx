@@ -7,8 +7,9 @@ import { Bars3CenterLeftIcon, XMarkIcon } from "@heroicons/react/24/outline";
 
 import MainContent from "./MainContent";
 import ImageSidebar from "./ImageSidebar";
-import MainContentTitleInput from "./MainContentTitleInput";
-import SuggestionSidebar from "./SuggestionSidebar";
+import "./TAC.css";
+// import MainContentTitleInput from "./MainContentTitleInput";
+// import SuggestionSidebar from "./SuggestionSidebar";
 
 function classNames(...classes) {
 	return classes.filter(Boolean).join(" ");

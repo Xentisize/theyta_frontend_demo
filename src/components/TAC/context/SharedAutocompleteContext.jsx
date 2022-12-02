@@ -31,6 +31,7 @@ export const SharedAutocompleteContext = ({ children }) => {
 			},
 			(newSuggestion) => {
 				suggestion = newSuggestion;
+				console.log("In shared: ", suggestion);
 				for (const listener of listeners) {
 					listener(newSuggestion);
 				}

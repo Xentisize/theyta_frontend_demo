@@ -1,16 +1,7 @@
-/**
- * Copyright (c) Meta Platforms, Inc. and affiliates.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- *
- */
-
 import { DecoratorNode } from "lexical";
-import * as React from "react";
-
-import { useSharedAutocompleteContext } from "../context/SharedAutocompleteContext";
 import { uuid as UUID } from "../plugins/AutocompletePlugin";
+
+import AutocompleteComponent from "./AutocompleteComponent";
 
 export class AutocompleteNode extends DecoratorNode {
 	__uuid;
@@ -54,20 +45,12 @@ export class AutocompleteNode extends DecoratorNode {
 		if (this.__uuid !== UUID) {
 			return null;
 		}
+		console.log("Inside decorate:", AutocompleteComponent);
 		return <AutocompleteComponent />;
 	}
 }
 
 export function $createAutocompleteNode(uuid) {
+	console.log("Inside $create");
 	return new AutocompleteNode(uuid);
-}
-
-function AutocompleteComponent() {
-	const [suggestion] = useSharedAutocompleteContext();
-
-	return (
-		<span style={{ color: "#ccc" }} spellCheck="false">
-			{suggestion} {"(TAB)"}
-		</span>
-	);
 }

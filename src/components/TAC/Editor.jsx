@@ -33,9 +33,13 @@ import {
 import { stopwords } from "./stopwords";
 import SuggestionSidebar from "./SuggestionSidebar";
 import TreeViewPlugin from "./plugins/TreeViewPlugin";
-// import AutocompletePlugin from "./plugins/AutocompletePlugin";
+import { TextSuggestionNode } from "./nodes/TextSuggestionNode";
+import TextSuggestionPlugin from "./plugins/TextSuggestionPlugin";
 // import { AutocompleteNode } from "./nodes/AutocompleteNode";
-// import { SharedAutocompleteContext } from "./context/SharedAutocompleteContext";
+import { HashtagNode } from "./nodes/HashtagNode";
+import { HashtagPlugin } from "./plugins/HashtagPlugin";
+import { MentionNode } from "./nodes/MentionNode";
+import MentionsPlugin from "./plugins/MentionPlugin";
 
 function onChange(state, setAnchorText) {
 	state.read(() => {
@@ -73,7 +77,7 @@ export const Editor = ({ anchorText, setAnchorText }) => {
 					onError(error) {
 						throw error;
 					},
-					nodes: [],
+					nodes: [TextSuggestionNode, HashtagNode, MentionNode],
 				}}
 			>
 				<Toolbar />
@@ -94,6 +98,9 @@ export const Editor = ({ anchorText, setAnchorText }) => {
 					<h2 className="basis-1/2 text-center text-xl font-semibold text-slate-400">Charts to Inspire</h2>
 				</div>
 
+				<HashtagPlugin />
+				<MentionsPlugin />
+				<TextSuggestionPlugin />
 				<TreeViewPlugin />
 				{/* <DragDropPaste /> */}
 			</LexicalComposer>

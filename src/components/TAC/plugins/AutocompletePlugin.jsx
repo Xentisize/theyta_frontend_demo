@@ -100,18 +100,23 @@ export default function AutocompletePlugin() {
 			editor.update(
 				() => {
 					const selection = $getSelection();
+					console.log("selection: ", selection);
 					const [hasMatch, match] = $search(selection);
 					if (!hasMatch || match !== lastMatch || !$isRangeSelection(selection)) {
 						// Outdated
 						return;
 					}
 					const selectionCopy = selection.clone();
+					console.log("Before $createAutocompleteNode: ", uuid);
 					const node = $createAutocompleteNode(uuid);
+					console.log("After creating node: ", node);
 					autocompleteNodeKey = node.getKey();
 					selection.insertNodes([node]);
 					$setSelection(selectionCopy);
 					lastSuggestion = newSuggestion;
 					setSuggestion(newSuggestion);
+					console.log("Finished update: ", newSuggestion, lastSuggestion);
+					console.log("shared context: ", newSuggestion);
 				},
 				{ tag: "history-merge" }
 			);
@@ -119,6 +124,7 @@ export default function AutocompletePlugin() {
 
 		function handleAutocompleteNodeTransform(node) {
 			const key = node.getKey();
+			console.log("nodeKey:", key);
 			if (node.__uuid === uuid && key !== autocompleteNodeKey) {
 				// Max one Autocomplete node per session
 				$clearSuggestion();
@@ -143,6 +149,7 @@ export default function AutocompletePlugin() {
 						if (searchPromise !== null) {
 							console.log("I am updating");
 							updateAsyncSuggestion(searchPromise, newSuggestion);
+							console.log("Finished update");
 						}
 					})
 					.catch((e) => {
@@ -160,6 +167,7 @@ export default function AutocompletePlugin() {
 			if (autocompleteNode === null) {
 				return false;
 			}
+			console.log("$handleAutocompleteIntent: ", lastSuggestion);
 			const textNode = $createTextNode(lastSuggestion);
 			autocompleteNode.replace(textNode);
 			textNode.selectNext();
