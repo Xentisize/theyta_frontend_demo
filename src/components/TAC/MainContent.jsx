@@ -1,10 +1,19 @@
 import { useState } from "react";
 
 import { Editor } from "./Editor";
+import ProgressBar from "@ramonak/react-progress-bar";
 
 import { stopwords } from "./stopwords";
 
-export default function MainContent({ setTitle, coverImage, setCoverImage, anchorText, setAnchorText }) {
+export default function MainContent({
+	setTitle,
+	coverImage,
+	setCoverImage,
+	anchorText,
+	setAnchorText,
+	paragraphText,
+	setParagraphText,
+}) {
 	const autoSuggestionItems = [
 		{
 			key: "weight",
@@ -95,11 +104,12 @@ export default function MainContent({ setTitle, coverImage, setCoverImage, ancho
 								>
 									<div className="flex flex-col">
 										<div className="basis-full">{suggestion.key}</div>
-										<div className="basis-full pl-4 text-sm">
-											<span>Popularity: </span>
-											<span>{suggestion.popularity}%</span>
-											<span className="ml-2">
-												<progress value={suggestion.popularity} max="100" className="rounded-md"></progress>
+										<div className="flex basis-full pl-4 text-sm">
+											<span className="text-md mb-2 basis-1/12 italic">Popularity: </span>
+											{/* <span>{suggestion.popularity}%</span> */}
+											<span className="ml-2 basis-11/12">
+												{/* <progress value={suggestion.popularity} max="100" className="w3-color-grey"></progress> */}
+												<ProgressBar completed={suggestion.popularity} bgColor="#daa4e0" labelSize="12px" />
 											</span>
 										</div>
 									</div>
@@ -122,7 +132,12 @@ export default function MainContent({ setTitle, coverImage, setCoverImage, ancho
 				</div>
 			)}
 
-			<Editor anchorText={anchorText} setAnchorText={setAnchorText} />
+			<Editor
+				anchorText={anchorText}
+				setAnchorText={setAnchorText}
+				paragraphText={paragraphText}
+				setParagraphText={setParagraphText}
+			/>
 		</>
 	);
 }

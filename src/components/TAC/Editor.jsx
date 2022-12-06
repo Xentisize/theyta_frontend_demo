@@ -15,6 +15,7 @@ import { RichTextPlugin } from "@lexical/react/LexicalRichTextPlugin";
 import { ContentEditable } from "@lexical/react/LexicalContentEditable";
 import { OnChangePlugin } from "@lexical/react/LexicalOnChangePlugin";
 import { HistoryPlugin } from "@lexical/react/LexicalHistoryPlugin";
+import LexicalErrorBoundary from "@lexical/react/LexicalErrorBoundary";
 import { mergeRegister } from "@lexical/utils";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -28,20 +29,24 @@ import {
 	faAlignCenter,
 	faUndo,
 	faRedo,
+	faPenRuler,
 } from "@fortawesome/free-solid-svg-icons";
 
 import { stopwords } from "./stopwords";
-import SuggestionSidebar from "./SuggestionSidebar";
-import TreeViewPlugin from "./plugins/TreeViewPlugin";
 import { TextSuggestionNode } from "./nodes/TextSuggestionNode";
 import TextSuggestionPlugin from "./plugins/TextSuggestionPlugin";
-// import { AutocompleteNode } from "./nodes/AutocompleteNode";
 import { HashtagNode } from "./nodes/HashtagNode";
 import { HashtagPlugin } from "./plugins/HashtagPlugin";
 import { MentionNode } from "./nodes/MentionNode";
 import MentionsPlugin from "./plugins/MentionPlugin";
+import { ChartNode } from "./nodes/ChartNode";
+import ChartPlugin from "./plugins/ChartPlugin";
+import { ExcalidrawNode } from "./nodes/ExcalidrawNode";
+import ExcalidrawPlugin, { INSERT_EXCALIDRAW_COMMAND } from "./plugins/ExcalidrawPlugin";
 
-function onChange(state, setAnchorText) {
+import ChartDemo from "./ChartDemo";
+
+function onChange(state, setAnchorText, setParagraphText) {
 	state.read(() => {
 		const root = $getRoot();
 		// const selection = $getSelection();
@@ -55,10 +60,27 @@ function onChange(state, setAnchorText) {
 		if (!stopwords.includes(anchorText)) {
 			setAnchorText(anchorText[0]);
 		}
+
+		const lastParagraph = root
+			.getLastChild()
+			.getTextContent()
+			.replaceAll(/\n/g, " ")
+			.replaceAll(/[?.,!-]/g, " ")
+			.split(" ");
+
+		const cleanedParagraphText = lastParagraph.filter((word) => !stopwords.includes(word));
+
+		if (cleanedParagraphText[cleanedParagraphText.length - 1] === "") {
+			cleanedParagraphText.pop();
+		}
+
+		if (cleanedParagraphText) {
+			setParagraphText(cleanedParagraphText);
+		}
 	});
 }
 
-export const Editor = ({ anchorText, setAnchorText }) => {
+export const Editor = ({ anchorText, setAnchorText, paragraphText, setParagraphText }) => {
 	return (
 		<div className="relative rounded-sm border-gray-200 bg-white shadow-sm">
 			<LexicalComposer
@@ -77,32 +99,46 @@ export const Editor = ({ anchorText, setAnchorText }) => {
 					onError(error) {
 						throw error;
 					},
-					nodes: [TextSuggestionNode, HashtagNode, MentionNode],
+					nodes: [TextSuggestionNode, HashtagNode, MentionNode, ChartNode, ExcalidrawNode],
 				}}
 			>
 				<Toolbar />
-				<RichTextPlugin
-					contentEditable={
-						<ContentEditable className="min-h-[450px] resize-none overflow-hidden text-ellipsis py-[15px] px-2.5 text-2xl text-slate-600 outline-none" />
-					}
-					placeholder={
-						<div className="pointer-events-none absolute top-[15px] left-[10px] select-none px-2 text-2xl text-slate-400">
-							Enter some text...
+				<div className="mt-3 flex">
+					<div className="basis-5/6 border-r-2 border-dashed">
+						<RichTextPlugin
+							contentEditable={
+								<ContentEditable className="min-h-[450px] resize-none overflow-hidden text-ellipsis py-[15px] px-2.5 text-2xl text-slate-600 outline-none" />
+							}
+							placeholder={
+								<div className="pointer-events-none absolute top-[15px] left-[10px] select-none px-2 text-2xl text-slate-400">
+									Enter some text...
+								</div>
+							}
+							ErrorBoundary={LexicalErrorBoundary}
+						/>
+						<OnChangePlugin onChange={(payload) => onChange(payload, setAnchorText, setParagraphText)} />
+						<HistoryPlugin />
+						{/* <div className="flex w-full border-t-4 border-dashed border-slate-200 pt-3">
+							<SuggestionSidebar anchorText={anchorText} />
+							<h2 className="basis-1/2 text-center text-xl font-semibold text-slate-400">Charts to Inspire</h2>
+						</div> */}
+
+						<HashtagPlugin />
+						<MentionsPlugin />
+						<ChartPlugin />
+						<ExcalidrawPlugin />
+					</div>
+					<div className="flex w-full basis-1/6 flex-col pl-3">
+						<div>
+							<ChartDemo paragraphText={paragraphText} />
 						</div>
-					}
-				/>
-				<OnChangePlugin onChange={(payload) => onChange(payload, setAnchorText)} />
-				<HistoryPlugin />
-				<div className="flex w-full border-t-4 border-dashed border-slate-200 pt-3">
-					<SuggestionSidebar anchorText={anchorText} />
-					<h2 className="basis-1/2 text-center text-xl font-semibold text-slate-400">Charts to Inspire</h2>
+					</div>
 				</div>
 
-				<HashtagPlugin />
-				<MentionsPlugin />
 				<TextSuggestionPlugin />
-				<TreeViewPlugin />
+				{/* <TreeViewPlugin /> */}
 				{/* <DragDropPaste /> */}
+				{/* <InsertChartButton _chartType={"line"} /> */}
 			</LexicalComposer>
 		</div>
 	);
@@ -181,6 +217,15 @@ export const Toolbar = () => {
 				}}
 			>
 				<FontAwesomeIcon icon={faUnderline} className="h-3.5 w-3.5 text-white" />
+			</button>
+
+			<button
+				className={clsx("bg-transparent px-1 transition-colors duration-100 ease-in hover:bg-gray-700")}
+				onClick={() => {
+					editor.dispatchCommand(INSERT_EXCALIDRAW_COMMAND, undefined);
+				}}
+			>
+				<FontAwesomeIcon icon={faPenRuler} className="h-3.5 w-3.5 text-white" />
 			</button>
 
 			<span className="block h-full w-[1px] bg-gray-600"></span>

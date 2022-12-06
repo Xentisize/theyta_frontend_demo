@@ -19,6 +19,7 @@ export default function TAC() {
 	const [title, setTitle] = useState([]);
 	const [coverImage, setCoverImage] = useState("");
 	const [anchorText, setAnchorText] = useState("");
+	const [paragraphText, setParagraphText] = useState([]);
 
 	return (
 		<>
@@ -224,6 +225,8 @@ export default function TAC() {
 											setCoverImage={setCoverImage}
 											setAnchorText={setAnchorText}
 											anchorText={anchorText}
+											paragraphText={paragraphText}
+											setParagraphText={setParagraphText}
 										/>
 									</div>
 								</div>
