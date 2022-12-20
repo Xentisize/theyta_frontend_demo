@@ -73,7 +73,7 @@ const dummyLookupService = {
 		setTimeout(() => {
 			const results = dummyMentionsData.filter((mention) => mention.toLowerCase().includes(string.toLowerCase()));
 			callback(results);
-		}, 500);
+		}, 2000);
 	},
 };
 

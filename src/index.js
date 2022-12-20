@@ -11,6 +11,10 @@ import Contact from "./components/Contact";
 import ArticlesListPage from "./components/articles_list/ArticlesListPage";
 import Article from "./components/articles/Article";
 import TAC from "./components/TAC/TAC";
+// import ObjectDetection from "./components/ObjectDetection/ObjectDetection";
+import ObjectDetection from "./components/ObjectDetection/Detection";
+import ObjectDetection2 from "./components/ObjectDetection/ObjectDetection2";
+import DetectionWrapper from "./components/ObjectDetection/DetectionWrapper";
 
 ReactDOM.render(
 	<React.StrictMode>
@@ -23,6 +27,12 @@ ReactDOM.render(
 				<Route path="/articles" element={<ArticlesListPage />} />
 				<Route path="/articles/:articleId" element={<Article />} />
 				<Route path="/articles/create" element={<TAC />} />
+				<Route path="/detection" element={<ObjectDetection />} />
+				<Route path="/detection2" element={<ObjectDetection2 />} />
+				<Route path="/detection3" element={<DetectionWrapper />} />
+
+				{/* <Route path="/detection" element={<ObjectDetection />} /> */}
+
 				{/* <Route path="/contact" element={<Contact />} />
         <Route path="/features/a" element={<Feature feature={}} /> */}
 			</Routes>
