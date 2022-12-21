@@ -38,10 +38,10 @@ export default function ObjectDetection({ setDetectedResults }) {
 		p5.setup = () => {
 			p5.textFont(customFont);
 
-			p5.createCanvas(640, 480, p5.WEBGL);
+			p5.createCanvas(400, 400, p5.WEBGL);
 
 			video = p5.createCapture(p5.VIDEO);
-			video.size(640, 480);
+			video.size(400, 400);
 			video.hide();
 			console.log("Video element is created");
 			video.elt.addEventListener("loadeddata", function () {
@@ -109,10 +109,9 @@ export default function ObjectDetection({ setDetectedResults }) {
 	}, []);
 
 	return (
-		<>
-			<p>Click to Reveal the Data</p>
+		<div className="my-2 flex flex-col">
+			<p className="my-2 text-lg font-semibold">Click to Reveal the Data</p>
 			<ReactP5Wrapper sketch={sketch} setDetectedResults={setDetectedResults} />
-			<p>{detections}</p>
-		</>
+		</div>
 	);
 }

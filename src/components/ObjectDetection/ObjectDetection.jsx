@@ -62,14 +62,6 @@ export default function ObjectDetection() {
 				<Webcam ref={webcamRef} className="-z-10" />
 				<canvas ref={canvasRef} className="relative z-10"></canvas>
 			</div>
-			<div>
-				{detectedResult &&
-					detectedResult.map((row, idx) => (
-						<p key={idx}>
-							{row.label} <span>{row.confidence}</span>
-						</p>
-					))}
-			</div>
 		</>
 	);
 }
