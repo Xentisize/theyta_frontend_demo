@@ -25,7 +25,7 @@ export default function ObjectDetection({ setDetectedResults, setDetectedFood })
 
 	function sketch(p5) {
 		p5.preload = () => {
-			customFont = p5.loadFont("Inconsolata.otf");
+			customFont = p5.loadFont("./Inconsolata.otf");
 			detector = ml5.objectDetector("cocossd", {}, () => {
 				detectionInterval = setInterval(() => {
 					detect();
@@ -43,7 +43,6 @@ export default function ObjectDetection({ setDetectedResults, setDetectedFood })
 			video = p5.createCapture(p5.VIDEO);
 			video.size(400, 400);
 			video.hide();
-			// console.log("Video element is created");
 			video?.elt?.addEventListener("loadeddata", function () {
 				if (video?.elt?.readyState >= 2) {
 					console.log("Video element is ready!");
@@ -62,7 +61,6 @@ export default function ObjectDetection({ setDetectedResults, setDetectedFood })
 					drawResult(detections[i]);
 				}
 			}
-			// video?.hide();
 		};
 
 		const drawResult = (obj) => {
@@ -94,10 +92,8 @@ export default function ObjectDetection({ setDetectedResults, setDetectedFood })
 		p5.mouseClicked = () => {
 			const detectedLabels = detections.map((row) => row.label);
 			const labels = [...new Set(detectedLabels)];
-			console.log("Labels: ", detectedLabels);
 
 			const food = nutritionData.filter((row) => labels.includes(row.foodType));
-			console.log(food);
 			setDetectedFood(food);
 
 			// setDetectedFood(detections);
@@ -111,7 +107,6 @@ export default function ObjectDetection({ setDetectedResults, setDetectedFood })
 				detect();
 				if (detections && detections.length) {
 					console.log("INTERVAL: ", detections);
-					// video?.hide();
 				}
 			}
 		}, 2000);
