@@ -25,7 +25,7 @@ export default function ObjectDetection({ setDetectedResults, setDetectedFood })
 
 	function sketch(p5) {
 		p5.preload = () => {
-			customFont = p5.loadFont("./Inconsolata.otf");
+			customFont = p5.loadFont("/Inconsolata.otf");
 			detector = ml5.objectDetector("cocossd", {}, () => {
 				detectionInterval = setInterval(() => {
 					detect();
