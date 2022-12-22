@@ -8,7 +8,7 @@ export default function ObjectDetection({ setDetectedResults, setDetectedFood })
 	let detector = null;
 	let detections = [];
 	let detectionInterval;
-	let customFont;
+	// let customFont;
 
 	function detect() {
 		detector.detect(video, onDetected);
@@ -25,7 +25,7 @@ export default function ObjectDetection({ setDetectedResults, setDetectedFood })
 
 	function sketch(p5) {
 		p5.preload = () => {
-			customFont = p5.loadFont("/Inconsolata.otf");
+			// customFont = p5.loadFont("/Inconsolata.otf");
 			detector = ml5.objectDetector("cocossd", {}, () => {
 				detectionInterval = setInterval(() => {
 					detect();
@@ -36,7 +36,7 @@ export default function ObjectDetection({ setDetectedResults, setDetectedFood })
 		};
 
 		p5.setup = () => {
-			p5.textFont(customFont);
+			// p5.textFont(customFont);
 
 			p5.createCanvas(400, 400, p5.WEBGL);
 
@@ -76,7 +76,7 @@ export default function ObjectDetection({ setDetectedResults, setDetectedFood })
 		};
 
 		const drawLabel = (obj) => {
-			p5.textFont(customFont);
+			// p5.textFont(customFont);
 			p5.noStroke();
 			p5.fill("black");
 			p5.textSize(24);
