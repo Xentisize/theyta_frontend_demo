@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import { Fragment } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
@@ -8,12 +8,23 @@ import ObjectDetection from "./Detection";
 import { nutritionData } from "./nutritionData";
 import NutritionChart from "./NutritionChart";
 
+import "./DetectionWrapper.css";
+
 function classNames(...classes) {
 	return classes.filter(Boolean).join(" ");
 }
 
 export default function DetectionWrapper() {
 	const [detectedResults, setDetectedResults] = useState([]);
+	const [detectedFood, setDetectedFood] = useState([]);
+
+	// useEffect(() => {
+	// 	const detectedLabels = detectedResults.map((row) => row.label);
+	// 	const labels = [...new Set(detectedLabels)];
+	// 	const food = nutritionData.filter((row) => labels.includes(row.foodType));
+
+	// 	console.log("FOOD:", food);
+	// }, [detectedResults]);
 
 	return (
 		<>
@@ -192,12 +203,16 @@ export default function DetectionWrapper() {
 					)}
 				</Disclosure>
 
-				<div className="flex sm:flex-col md:flex-row">
+				<div className="flex-col md:flex md:flex-row">
 					<div className="flex basis-1/2 justify-center">
-						<ObjectDetection setDetectedResults={setDetectedResults} className="mx-0" />
+						<ObjectDetection
+							setDetectedResults={setDetectedResults}
+							setDetectedFood={setDetectedFood}
+							className="mx-0"
+						/>
 					</div>
 					<div className="m-2 basis-1/2 p-5">
-						<ul>
+						{/* <ul>
 							Detected Food:
 							{detectedResults.map((obj, idx) => (
 								<li key={idx}>
@@ -205,8 +220,17 @@ export default function DetectionWrapper() {
 									<span>{(obj.confidence * 100).toFixed(2)}%</span>
 								</li>
 							))}
-						</ul>
-						<NutritionChart chartContent={nutritionData[4]} />
+						</ul> */}
+
+						<div className="flex justify-center border-t-4">
+							<div>
+								{/* <NutritionChart chartContent={nutritionData[4]} />
+								<NutritionChart chartContent={nutritionData[3]} /> */}
+								{detectedFood.map((data, idx) => (
+									<NutritionChart chartContent={data} key={idx} />
+								))}
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>

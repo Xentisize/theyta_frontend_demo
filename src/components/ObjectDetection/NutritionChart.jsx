@@ -14,7 +14,7 @@ ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend,
 
 export default function NutritionChart({ chartContent }) {
 	let options = {
-		responsive: true,
+		responsive: false,
 		plugins: {
 			legend: {
 				display: false,
@@ -37,5 +37,5 @@ export default function NutritionChart({ chartContent }) {
 		})),
 	};
 
-	return <Chart type="bar" options={options} data={data} width={50} height={50} />;
+	return <Chart type="bar" options={options} data={data} width={400} height={400} />;
 }

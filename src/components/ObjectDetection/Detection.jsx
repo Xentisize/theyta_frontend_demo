@@ -1,12 +1,12 @@
 import { ReactP5Wrapper } from "react-p5-wrapper";
+import { nutritionData } from "./nutritionData";
 import { useState, useEffect } from "react";
 import ml5 from "ml5";
 
-export default function ObjectDetection({ setDetectedResults }) {
+export default function ObjectDetection({ setDetectedResults, setDetectedFood }) {
 	let video = null;
 	let detector = null;
 	let detections = [];
-	let detecting = false;
 	let detectionInterval;
 	let customFont;
 
@@ -43,9 +43,9 @@ export default function ObjectDetection({ setDetectedResults }) {
 			video = p5.createCapture(p5.VIDEO);
 			video.size(400, 400);
 			video.hide();
-			console.log("Video element is created");
-			video.elt.addEventListener("loadeddata", function () {
-				if (video.elt.readyState >= 2) {
+			// console.log("Video element is created");
+			video?.elt?.addEventListener("loadeddata", function () {
+				if (video?.elt?.readyState >= 2) {
 					console.log("Video element is ready!");
 				}
 			});
@@ -57,9 +57,12 @@ export default function ObjectDetection({ setDetectedResults }) {
 			}
 			p5.image(video, -320, -240);
 
-			for (let i = 0; i < detections.length; i++) {
-				drawResult(detections[i]);
+			if (detections?.length) {
+				for (let i = 0; i < detections.length; i++) {
+					drawResult(detections[i]);
+				}
 			}
+			// video?.hide();
 		};
 
 		const drawResult = (obj) => {
@@ -89,16 +92,27 @@ export default function ObjectDetection({ setDetectedResults }) {
 		// };
 
 		p5.mouseClicked = () => {
-			setDetectedResults(detections);
-			console.log(detections);
+			const detectedLabels = detections.map((row) => row.label);
+			const labels = [...new Set(detectedLabels)];
+			console.log("Labels: ", detectedLabels);
+
+			const food = nutritionData.filter((row) => labels.includes(row.foodType));
+			console.log(food);
+			setDetectedFood(food);
+
+			// setDetectedFood(detections);
+			// console.log("FOOD: ", food);
 		};
 	}
 
 	useEffect(() => {
 		const interval = setInterval(() => {
-			detect();
-			if (detections && detections.length) {
-				console.log("INTERVAL: ", detections);
+			if (video) {
+				detect();
+				if (detections && detections.length) {
+					console.log("INTERVAL: ", detections);
+					// video?.hide();
+				}
 			}
 		}, 2000);
 
@@ -110,8 +124,8 @@ export default function ObjectDetection({ setDetectedResults }) {
 
 	return (
 		<div className="my-2 flex flex-col">
-			<p className="my-2 text-lg font-semibold">Click to Reveal the Data</p>
-			<ReactP5Wrapper sketch={sketch} setDetectedResults={setDetectedResults} />
+			<p className="my-2 text-lg font-semibold">Click to View the Data</p>
+			<ReactP5Wrapper sketch={sketch} setDetectedResults={setDetectedResults} setDetectedFood={setDetectedFood} />
 		</div>
 	);
 }

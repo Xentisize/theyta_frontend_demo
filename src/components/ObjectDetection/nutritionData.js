@@ -42,25 +42,25 @@ export const nutritionData = [
 	{
 		dataID: 3,
 		foodType: "pizza",
-		dataSetName: "Nutrition Facts of Pizza Per 107g",
+		dataSetName: "Nutrition Facts of Pizza Per 100g",
 		dataSetLabels: ["Protein", "Carbs", "Sugar", "Fiber", "Fat"],
 		dataSet: [
 			{
 				chartDataLabel: "Nutrition",
-				chartData: [12.2, 35.6, 3.8, 2.5, 10.4],
+				chartData: [11.4, 33.3, 3.6, 2.3, 9.7],
 				chartColor: [colors[0], colors[1], colors[2], colors[3], colors[4]],
 			},
 		],
 	},
 	{
 		dataID: 4,
-		foodType: "doughnut",
-		dataSetName: "Nutrition Facts of Dougnut Per 64g",
+		foodType: "donut",
+		dataSetName: "Nutrition Facts of Donut Per 100g",
 		dataSetLabels: ["Protein", "Carbs", "Sugar", "Fiber", "Fat"],
 		dataSet: [
 			{
 				chartDataLabel: "Nutrition",
-				chartData: [4, 31, 15, 0, 15],
+				chartData: [6.25, 48.4, 23.4, 0, 23.4],
 				chartColor: [colors[0], colors[1], colors[2], colors[3], colors[4]],
 			},
 		],
@@ -68,12 +68,51 @@ export const nutritionData = [
 	{
 		dataID: 5,
 		foodType: "sandwich",
-		dataSetName: "Nutrition Facts of Sandwich Per 155g",
+		dataSetName: "Nutrition Facts of Sandwich Per 100g",
 		dataSetLabels: ["Protein", "Carbs", "Sugar", "Fiber", "Fat"],
 		dataSet: [
 			{
 				chartDataLabel: "Nutrition",
-				chartData: [19.3, 32.5, 5.1, 2.3, 16.7],
+				chartData: [12.5, 21.0, 3.3, 1.5, 10.8],
+				chartColor: [colors[0], colors[1], colors[2], colors[3], colors[4]],
+			},
+		],
+	},
+	{
+		dataID: 6,
+		foodType: "carrot",
+		dataSetName: "Nutrition Facts of Carrot Per 100g",
+		dataSetLabels: ["Protein", "Carbs", "Sugar", "Fiber", "Fat"],
+		dataSet: [
+			{
+				chartDataLabel: "Nutrition",
+				chartData: [0.9, 9.6, 4.7, 2.8, 0.2],
+				chartColor: [colors[0], colors[1], colors[2], colors[3], colors[4]],
+			},
+		],
+	},
+	{
+		dataID: 7,
+		foodType: "apple",
+		dataSetName: "Nutrition Facts of Apple Per 100g",
+		dataSetLabels: ["Protein", "Carbs", "Sugar", "Fiber", "Fat"],
+		dataSet: [
+			{
+				chartDataLabel: "Nutrition",
+				chartData: [0.3, 13.8, 10.4, 2.4, 0.2],
+				chartColor: [colors[0], colors[1], colors[2], colors[3], colors[4]],
+			},
+		],
+	},
+	{
+		dataID: 8,
+		foodType: "cake",
+		dataSetName: "Nutrition Facts of Cake Per 100g",
+		dataSetLabels: ["Protein", "Carbs", "Sugar", "Fiber", "Fat"],
+		dataSet: [
+			{
+				chartDataLabel: "Nutrition",
+				chartData: [4.0, 56, 44, 0, 24],
 				chartColor: [colors[0], colors[1], colors[2], colors[3], colors[4]],
 			},
 		],
