@@ -166,12 +166,21 @@ const Article = () => {
 					{!expandCanvas ? <CommentList comments={comments} /> : null}
 				</div>
 
-				<div className="mx-auto w-3/4 pt-3 pb-5">
-					{article.content.map((p, i) => {
-						return i !== 0 ? (
-							<p className="py-2 text-lg" key={i} dangerouslySetInnerHTML={{ __html: p }} data-paragraph={i}></p>
-						) : null;
-					})}
+				<div className="mx-8 flex flex-col gap-9 pt-3 sm:flex-row">
+					<div className="basis-auto sm:basis-2/3">
+						{article.content.map((p, i) => {
+							return i !== 0 ? (
+								<p className="py-2 text-lg" key={i} dangerouslySetInnerHTML={{ __html: p }} data-paragraph={i}></p>
+							) : null;
+						})}
+					</div>
+
+					<div className="h-72 basis-auto rounded-lg sm:basis-1/3">
+						<babylon model="/chart01.glb"></babylon>
+						<p className="py-2 indent-3 text-sm italic text-slate-500">
+							3D Visualization to the Growth of Private Domestic Houses
+						</p>
+					</div>
 				</div>
 
 				<div className="mx-5 mt-5 mb-5 flex flex-1 flex-col flex-wrap items-stretch gap-5 border-t-2 border-slate-200 pb-2 md:flex-row">
