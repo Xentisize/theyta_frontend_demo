@@ -31,17 +31,13 @@ export default function ObjectDetection({ setDetectedResults, setDetectedFood })
 				detectionInterval = setInterval(() => {
 					detect();
 				}, 2000);
-				console.log("Model loaded!");
 			});
-			console.log("detector is detected");
 		};
 
 		p5.setup = () => {
-			// p5.textFont(customFont);
-
 			p5.createCanvas(400, 400, p5.WEBGL);
 
-			video = p5.createCapture(p5.VIDEO);
+			video = p5.createCapture(p5.Video);
 			video.size(400, 400);
 			video.hide();
 			video?.elt?.addEventListener("loadeddata", function () {
@@ -81,7 +77,7 @@ export default function ObjectDetection({ setDetectedResults, setDetectedFood })
 			// p5.textFont("Georgia");
 			p5.noStroke();
 			p5.fill("black");
-			p5.textSize(24);
+			p5.textSize(16);
 			p5.text(obj.label, obj.x + 10 - 320, obj.y + 24 - 240);
 		};
 
